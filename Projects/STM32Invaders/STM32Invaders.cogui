@@ -26,6 +26,7 @@
 <part id="6"/>
 <part id="7"/>
 <part id="8"/>
+<part id="9"/>
 </presentation>
 </folder>
 </info>
@@ -42,9 +43,9 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/STM32Invaders/LibOS/Header Files/guiColors.h"/>
 <editorState selectionHorizontalPixel="0" selectionLength="13" selectionOffset="4543" selectionTopPixel="1350"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="waveMixer.c" partName="waveMixer.c" path="D:/Projects/Emulators/LibOS/source/waveMixer.c" title="waveMixer.c" tooltip="D:/Projects/Emulators/LibOS/source/waveMixer.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="waveMixer.c" partName="waveMixer.c" path="D:/Projects/SRCE/LibOS/source/waveMixer.c" title="waveMixer.c" tooltip="D:/Projects/SRCE/LibOS/source/waveMixer.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/STM32Invaders/LibOS/Source Files/waveMixer.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3504" selectionTopPixel="891"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2129" selectionTopPixel="480"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="guiColorGraphics.c" partName="guiColorGraphics.c" path="D:/Projects/Emulators/LibOS/source/guiColorGraphics.c" title="guiColorGraphics.c" tooltip="D:/Projects/Emulators/LibOS/source/guiColorGraphics.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/STM32Invaders/LibOS/Source Files/guiColorGraphics.c"/>
@@ -54,17 +55,21 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/STM32Invaders/LibOS/Driver Files/Source Files/drvColorGraphics.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="9306" selectionTopPixel="2821"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="hwInvaders.c" partName="hwInvaders.c" path="D:/Projects/Emulators/LibEmu/source/hwInvaders.c" title="hwInvaders.c" tooltip="D:/Projects/Emulators/LibEmu/source/hwInvaders.c" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="hwInvaders.c" partName="hwInvaders.c" path="D:/Projects/SRCE/LibEmu/source/hwInvaders.c" title="hwInvaders.c" tooltip="D:/Projects/SRCE/LibEmu/source/hwInvaders.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/STM32Invaders/LibEmu/Source Files/hwInvaders.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="35" selectionOffset="3691" selectionTopPixel="120"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4229" selectionTopPixel="1380"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="sysMain.h" partName="sysMain.h" path="D:/Projects/Emulators/LibOS/include/sysMain.h" title="sysMain.h" tooltip="D:/Projects/Emulators/LibOS/include/sysMain.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/STM32Invaders/LibOS/Header Files/sysMain.h"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="drvDACAudio.c" partName="drvDACAudio.c" path="D:/Projects/SRCE/LibOS/drivers/STM32F4/STM32F429DISCO/source/drvDACAudio.c" title="drvDACAudio.c" tooltip="D:/Projects/SRCE/LibOS/drivers/STM32F4/STM32F429DISCO/source/drvDACAudio.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="drvDACAudio.c" partName="drvDACAudio.c" path="D:/Projects/SRCE/LibOS/drivers/STM32F4/STM32F429DISCO/source/drvDACAudio.c" title="drvDACAudio.c" tooltip="D:/Projects/SRCE/LibOS/drivers/STM32F4/STM32F429DISCO/source/drvDACAudio.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/STM32Invaders/LibOS/Driver Files/Source Files/drvDACAudio.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="261" selectionOffset="5679" selectionTopPixel="1650"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1083" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="sysConfig.h" partName="sysConfig.h" path="D:/Projects/SRCE/Projects/STM32Invaders/include/sysConfig.h" title="sysConfig.h" tooltip="D:/Projects/SRCE/Projects/STM32Invaders/include/sysConfig.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/STM32Invaders/Header Files/sysConfig.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2295" selectionTopPixel="480"/>
 </editor>
 </editors>
 <views>
@@ -74,7 +79,7 @@
 </viewState>
 </view>
 <view id="org.coocox.builder.ui.views.ProjectView" partName="Project">
-<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="4">
+<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="9">
 <expanded>
 <element path="/STM32Invaders"/>
 <element path="/STM32Invaders/Header Files"/>
@@ -83,15 +88,20 @@
 <element path="/STM32Invaders/LibEmu/Source Files"/>
 <element path="/STM32Invaders/LibOS"/>
 <element path="/STM32Invaders/LibOS/Driver Files"/>
+<element path="/STM32Invaders/LibOS/Driver Files/CMSIS"/>
 <element path="/STM32Invaders/LibOS/Driver Files/Source Files"/>
 <element path="/STM32Invaders/LibOS/Header Files"/>
 <element path="/STM32Invaders/LibOS/Source Files"/>
 <element path="/STM32Invaders/Resource Files"/>
 <element path="/STM32Invaders/Source Files"/>
 </expanded>
-<selection>
-<element path="/STM32Invaders/LibOS/Driver Files/Source Files/drvDACAudio.c"/>
-</selection>
+</viewState>
+</view>
+<view id="org.coocox.codebugger.trace.ui.traceview" partName="Semihosting"/>
+<view id="org.eclipse.search.ui.views.SearchView" partName="Search">
+<viewState isPinned="false">
+<view IMemento.internal.id="org.eclipse.cdt.ui.pdomSearchViewPage" definitionColumnWidth="150" locationColumnWidth="300" matchColumnWidth="300" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" showEnclosingDefinitions="true"/>
+<view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
 </viewState>
 </view>
 <view id="org.eclipse.debug.ui.DebugView" partName="Debug">
@@ -102,7 +112,8 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>&#x0A;<category IMemento.internal.id="Warnings (1 item)"/>
+<expanded>
+<category IMemento.internal.id="Warnings (1 item)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -115,11 +126,17 @@
 <view id="org.eclipse.ui.console.ConsoleView" partName="Console">
 <viewState/>
 </view>
+<view id="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" partName="Memory Browser">
+<viewState>
+<MemoryBroser ComboItemsValue="" FocuseTabIndex="0" TabsValue="" TextValue="" horizontalPosition="0" verticalPosition="0"/>
+</viewState>
+</view>
 <view id="org.coocox.coassistant.view.CoAssistantView_debug" partName="Peripherals">
-<viewState horizontalPosition="0" verticalPosition="60">
-<selection>&#x0A;<element name="DMA2D"/>
+<viewState horizontalPosition="0" verticalPosition="0">
+<selection>
+<element name="DMA1"/>
 </selection>
-<registerValues baseAddress="Base Address: 0x4002B000" description="Description:  DMA2D controller"/>
+<registerValues baseAddress="Base Address: 0x40026000" description="Description:  DMA1 Stream0 global interrupt"/>
 </viewState>
 </view>
 <view id="org.eclipse.debug.ui.VariableView" partName="Variables">
@@ -148,14 +165,15 @@
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showMemoryBrowserAction"/>
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showVariablesAction"/>
 <hide_menu_item_id id="org.coocox.builder.ui.openProjectExplorerAction"/>
-<hide_menu_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
 <hide_menu_item_id id="org.coocox.codebugger.trace.actions.ShowTraceControlAction"/>
+<hide_menu_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showRegistersAction"/>
 <hide_toolbar_item_id id="org.eclipse.cdt.debug.internal.ui.actions.ToggleInstructionStepModeAction"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
 <view id="org.eclipse.ui.views.ProblemView"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.search.ui.views.SearchView"/>
 <view id="org.coocox.builder.ui.views.ProjectView"/>
 <view id="org.coocox.component.ui.view.ComponentView"/>
 <fastViewBars/>
@@ -181,9 +199,11 @@
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
+<part id="2"/>
 </presentation>
 </folder>
 </info>
@@ -240,57 +260,80 @@
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.coocox.builder.ui.build"/>
 <hide_toolbar_item_id id="org.coocox.welcome.ui.action.welcome"/>
-<hide_toolbar_item_id id="org.coocox.codebugger.configuration.coideProgramDownloadAction"/>
 <hide_toolbar_item_id id="org.coocox.component.ui.ShowRepositoryAction"/>
+<hide_toolbar_item_id id="org.coocox.codebugger.configuration.coideProgramDownloadAction"/>
 <view id="org.coocox.builder.ui.views.ProjectView"/>
 <view id="org.eclipse.debug.ui.VariableView"/>
 <view id="org.eclipse.debug.ui.ExpressionView"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.coocox.coassistant.view.CoAssistantView_debug"/>
 <view id="org.eclipse.debug.ui.DebugView"/>
-<fastViewBars>&#x0A;<fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@1a5a843" orientation="256" selectedTabId="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" style="0">&#x0A;<fastViews>&#x0A;<view id="org.coocox.codebugger.trace.ui.traceview" ratio="0.3"/>
+<fastViewBars>
+<fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@1a5a843" orientation="256" selectedTabId="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" style="0">
+<fastViews>
+<view id="org.coocox.codebugger.trace.ui.traceview" ratio="0.3"/>
 <view id="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" ratio="0.29936305"/>
 </fastViews>
 </fastViewBar>
 </fastViewBars>
 <viewLayoutRec closeable="false" id="org.eclipse.debug.ui.DebugView"/>
-<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="org.eclipse.ui.internal.ViewStack@14d67cf">&#x0A;<folder activePageID="org.coocox.builder.ui.views.ProjectView" appearance="2" expanded="2">&#x0A;<page content="org.coocox.builder.ui.views.ProjectView" label="Project"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<layout>
+<mainWindow>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@14d67cf">
+<folder activePageID="org.coocox.builder.ui.views.ProjectView" appearance="2" expanded="2">
+<page content="org.coocox.builder.ui.views.ProjectView" label="Project"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.ui.internal.ViewStack@14d67cf">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.ui.internal.ViewStack@14d67cf">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@11d74ce" ratio="0.513834" ratioLeft="390" ratioRight="369" relationship="4" relative="org.eclipse.ui.internal.ViewStack@14d67cf">&#x0A;<folder appearance="2" expanded="0">&#x0A;<page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@11d74ce" ratio="0.513834" ratioLeft="390" ratioRight="369" relationship="4" relative="org.eclipse.ui.internal.ViewStack@14d67cf">
+<folder appearance="2" expanded="0">
+<page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@1a5a843" ratio="0.5" ratioLeft="956" ratioRight="956" relationship="2" relative="org.eclipse.ui.internal.ViewStack@11d74ce">&#x0A;<folder appearance="2" expanded="0">&#x0A;<page content="org.coocox.codebugger.trace.ui.traceview" label="LabelNotFound"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@1a5a843" ratio="0.5" ratioLeft="956" ratioRight="956" relationship="2" relative="org.eclipse.ui.internal.ViewStack@11d74ce">
+<folder appearance="2" expanded="0">
+<page content="org.coocox.codebugger.trace.ui.traceview" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.MemoryView" label="LabelNotFound"/>
 <page content="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@1c93dc0" ratio="0.72246695" ratioLeft="1148" ratioRight="441" relationship="2" relative="org.eclipse.ui.internal.ViewStack@14d67cf">&#x0A;<folder activePageID="org.coocox.coassistant.view.CoAssistantView_debug" appearance="2" expanded="2">&#x0A;<page content="org.coocox.coassistant.view.CoAssistantView_debug" label="Peripherals"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@1c93dc0" ratio="0.72246695" ratioLeft="1148" ratioRight="441" relationship="2" relative="org.eclipse.ui.internal.ViewStack@14d67cf">
+<folder activePageID="org.coocox.coassistant.view.CoAssistantView_debug" appearance="2" expanded="2">
+<page content="org.coocox.coassistant.view.CoAssistantView_debug" label="Peripherals"/>
 <page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@9db9ab" ratio="0.7496706" ratioLeft="569" ratioRight="190" relationship="4" relative="org.eclipse.ui.internal.ViewStack@1c93dc0">&#x0A;<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@9db9ab" ratio="0.7496706" ratioLeft="569" ratioRight="190" relationship="4" relative="org.eclipse.ui.internal.ViewStack@1c93dc0">
+<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.26534295" ratioLeft="294" ratioRight="814" relationship="2" relative="org.eclipse.ui.internal.ViewStack@14d67cf"/>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@198bdef" ratio="0.72949946" ratioLeft="685" ratioRight="254" relationship="4" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@198bdef" ratio="0.72949946" ratioLeft="685" ratioRight="254" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.debug.ui.ExpressionView" label="Expressions"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 <part id="1"/>
 <part id="2"/>
 </presentation>
@@ -303,177 +346,167 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" path="/STM32Invaders/LibOS/Driver Files/CMSIS/startup_stm32f429xx.s"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibEmu/Source Files/scrInvaders16bppPixelRenderer.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibEmu/Source Files/hwInvaders.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibEmu/Source Files/scrInvadersStatistics.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibOS/Source Files/sysMain.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibOS/Source Files/sysMain.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibOS/Driver Files/Source Files/drvDACAudio.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibOS/Source Files/sysMain.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibOS/Source Files/waveMixer.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibOS/Source Files/sysMain.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/Header Files/sysConfig.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibOS/Driver Files/Source Files/drvColorGraphicsDisplay.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibOS/Driver Files/Source Files/drvColorGraphics.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibOS/Source Files/sysInitialize.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/Source Files/sysInitialize.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibEmu/Header Files/emuInvaders.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibOS/Source Files/guiColorGraphics.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibEmu/Source Files/hwInvaders.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibEmu/Source Files/scrInvaders16bppPixelRenderer.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibOS/Header Files/sysMain.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibEmu/Source Files/scrInvadersStatistics.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibOS/Source Files/sysHighresTimer.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" path="/STM32Invaders/LibOS/Driver Files/CMSIS/startup_stm32f429xx.s"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_dma.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibOS/Source Files/sysMain.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" path="/STM32Invaders/LibOS/Driver Files/CMSIS/startup_stm32f429xx.s"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibOS/Source Files/sysMain.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32Invaders/LibOS/Driver Files/Source Files/drvDACAudio.c"/>
 </editors>
-<item historyLabel="hwInvaders.c" index="2">
-<position info="not_deleted" x="4825" y="0"/>
+<item historyLabel="drvDACAudio.c" index="0">
+<position info="not_deleted" x="5361" y="0"/>
 </item>
-<item historyLabel="scrInvadersStatistics.c" index="3">
-<position info="not_deleted" x="2752" y="0"/>
+<item historyLabel="drvDACAudio.c" index="0">
+<position info="not_deleted" x="4917" y="0"/>
 </item>
-<item historyLabel="hwInvaders.c" index="2">
-<position info="not_deleted" x="8363" y="0"/>
+<item historyLabel="drvDACAudio.c" index="0">
+<position info="not_deleted" x="5408" y="0"/>
 </item>
-<item historyLabel="startup_stm32f429xx.s" index="0">
+<item historyLabel="drvDACAudio.c" index="0">
+<position info="not_deleted" x="5448" y="0"/>
+</item>
+<item historyLabel="waveMixer.c" index="2">
+<position info="not_deleted" x="2129" y="0"/>
+</item>
+<item historyLabel="hwInvaders.c" index="3">
+<position info="not_deleted" x="3833" y="0"/>
+</item>
+<item historyLabel="hwInvaders.c" index="3">
+<position info="not_deleted" x="3859" y="0"/>
+</item>
+<item historyLabel="hwInvaders.c" index="3">
+<position info="not_deleted" x="7719" y="0"/>
+</item>
+<item historyLabel="sysHighresTimer.c" index="4">
+<position info="not_deleted" x="2298" y="0"/>
+</item>
+<item historyLabel="drvDACAudio.c" index="0">
+<position info="not_deleted" x="4877" y="0"/>
+</item>
+<item historyLabel="startup_stm32f429xx.s" index="5">
 <position/>
 </item>
-<item historyLabel="sysMain.c" index="4">
+<item historyLabel="sysMain.c" index="1">
 <position info="not_deleted" x="1400" y="0"/>
 </item>
-<item historyLabel="hwInvaders.c" index="2">
-<position info="not_deleted" x="8363" y="0"/>
+<item historyLabel="drvDACAudio.c" index="0">
+<position info="not_deleted" x="3127" y="0"/>
 </item>
-<item historyLabel="scrInvaders16bppPixelRenderer.c" index="1">
-<position info="not_deleted" x="4836" y="0"/>
+<item historyLabel="drvDACAudio.c" index="0">
+<position info="not_deleted" x="8062" y="0"/>
 </item>
-<item historyLabel="scrInvadersStatistics.c" index="3">
-<position info="not_deleted" x="1938" y="0"/>
+<item historyLabel="stm32f4xx_hal_dma.c" index="6">
+<position info="not_deleted" x="23319" y="0"/>
 </item>
-<item historyLabel="hwInvaders.c" index="2">
-<position info="not_deleted" x="8535" y="0"/>
+<item historyLabel="stm32f4xx_hal_dma.c" index="6">
+<position info="not_deleted" x="23461" y="0"/>
 </item>
-<item historyLabel="startup_stm32f429xx.s" index="0">
+<item historyLabel="stm32f4xx_hal_dma.c" index="6">
+<position info="not_deleted" x="24253" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_dma.c" index="6">
+<position info="not_deleted" x="25037" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_dma.c" index="6">
+<position info="not_deleted" x="25840" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_dma.c" index="6">
+<position info="not_deleted" x="25916" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_dma.c" index="6">
+<position info="not_deleted" x="26024" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_dma.c" index="6">
+<position info="not_deleted" x="26152" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_dma.c" index="6">
+<position info="not_deleted" x="26269" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_dma.c" index="6">
+<position info="not_deleted" x="26499" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_dma.c" index="6">
+<position info="not_deleted" x="26613" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_dma.c" index="6">
+<position info="not_deleted" x="27197" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_dma.c" index="6">
+<position info="not_deleted" x="27436" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_dma.c" index="6">
+<position info="not_deleted" x="27512" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_dma.c" index="6">
+<position info="not_deleted" x="27578" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_dma.c" index="6">
+<position info="not_deleted" x="27701" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_dma.c" index="6">
+<position info="not_deleted" x="27818" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_dma.c" index="6">
+<position info="not_deleted" x="28124" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_dma.c" index="6">
+<position info="not_deleted" x="28193" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_dma.c" index="6">
+<position info="not_deleted" x="28310" y="0"/>
+</item>
+<item historyLabel="drvDACAudio.c" index="0">
+<position info="not_deleted" x="7558" y="0"/>
+</item>
+<item historyLabel="drvDACAudio.c" index="0">
+<position info="not_deleted" x="5363" y="0"/>
+</item>
+<item historyLabel="startup_stm32f429xx.s" index="5">
 <position/>
 </item>
-<item historyLabel="sysMain.c" index="5">
+<item historyLabel="sysMain.c" index="1">
 <position info="not_deleted" x="1400" y="0"/>
 </item>
-<item historyLabel="scrInvaders16bppPixelRenderer.c" index="1">
-<position info="not_deleted" x="4836" y="0"/>
+<item historyLabel="drvDACAudio.c" index="0">
+<position info="not_deleted" x="5363" y="0"/>
 </item>
-<item historyLabel="scrInvadersStatistics.c" index="3">
-<position info="not_deleted" x="1938" y="0"/>
-</item>
-<item historyLabel="scrInvaders16bppPixelRenderer.c" index="1">
-<position info="not_deleted" x="4836" y="0"/>
-</item>
-<item historyLabel="hwInvaders.c" index="2">
-<position/>
-</item>
-<item historyLabel="startup_stm32f429xx.s" index="0">
-<position/>
-</item>
-<item historyLabel="sysMain.c" index="6">
-<position info="not_deleted" x="1400" y="0"/>
-</item>
-<item historyLabel="scrInvaders16bppPixelRenderer.c" index="1">
-<position info="not_deleted" x="4836" y="0"/>
-</item>
-<item historyLabel="hwInvaders.c" index="2">
-<position info="not_deleted" x="7762" y="0"/>
-</item>
-<item historyLabel="waveMixer.c" index="7">
-<position info="not_deleted" x="3915" y="62"/>
-</item>
-<item historyLabel="startup_stm32f429xx.s" index="0">
+<item historyLabel="startup_stm32f429xx.s" index="5">
 <position info="not_deleted" x="3658" y="0"/>
 </item>
-<item historyLabel="sysMain.c" index="8">
+<item historyLabel="sysMain.c" index="7">
 <position info="not_deleted" x="1400" y="0"/>
 </item>
-<item historyLabel="sysConfig.h" index="9">
-<position info="not_deleted" x="1984" y="0"/>
+<item historyLabel="drvDACAudio.c" index="0">
+<position info="not_deleted" x="3127" y="0"/>
 </item>
-<item historyLabel="sysMain.c" index="8">
+<item historyLabel="drvDACAudio.c" index="0">
+<position info="not_deleted" x="8062" y="0"/>
+</item>
+<item historyLabel="hwInvaders.c" index="3">
+<position info="not_deleted" x="7719" y="0"/>
+</item>
+<item historyLabel="hwInvaders.c" index="3">
+<position info="not_deleted" x="8757" y="0"/>
+</item>
+<item historyLabel="hwInvaders.c" index="3">
+<position info="not_deleted" x="8580" y="0"/>
+</item>
+<item historyLabel="startup_stm32f429xx.s" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="sysMain.c" index="9">
 <position info="not_deleted" x="1400" y="0"/>
 </item>
-<item historyLabel="drvColorGraphicsDisplay.c" index="10">
-<position info="not_deleted" x="1025" y="243"/>
+<item historyLabel="drvDACAudio.c" index="10">
+<position info="not_deleted" x="1083" y="0"/>
 </item>
-<item historyLabel="sysMain.c" index="8">
-<position info="not_deleted" x="1400" y="0"/>
-</item>
-<item historyLabel="drvColorGraphics.c" index="11">
-<position info="not_deleted" x="0" y="729"/>
-</item>
-<item historyLabel="sysInitialize.c" index="12">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="drvColorGraphics.c" index="11">
-<position info="not_deleted" x="0" y="729"/>
-</item>
-<item historyLabel="sysInitialize.c" index="13">
-<position info="not_deleted" x="1844" y="0"/>
-</item>
-<item historyLabel="drvColorGraphics.c" index="11">
-<position info="not_deleted" x="0" y="729"/>
-</item>
-<item historyLabel="sysMain.c" index="8">
-<position info="not_deleted" x="1400" y="0"/>
-</item>
-<item historyLabel="emuInvaders.h" index="14">
-<position info="not_deleted" x="1808" y="22"/>
-</item>
-<item historyLabel="guiColorGraphics.c" index="15">
-<position info="not_deleted" x="2699" y="0"/>
-</item>
-<item historyLabel="drvColorGraphics.c" index="11">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="hwInvaders.c" index="16">
-<position/>
-</item>
-<item historyLabel="drvColorGraphics.c" index="11">
-<position info="not_deleted" x="9021" y="0"/>
-</item>
-<item historyLabel="hwInvaders.c" index="16">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="drvColorGraphics.c" index="11">
-<position info="not_deleted" x="9306" y="0"/>
-</item>
-<item historyLabel="hwInvaders.c" index="16">
-<position info="not_deleted" x="10619" y="107"/>
-</item>
-<item historyLabel="scrInvaders16bppPixelRenderer.c" index="17">
-<position info="not_deleted" x="4462" y="0"/>
-</item>
-<item historyLabel="sysMain.h" index="18">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="emuInvaders.h" index="14">
-<position info="not_deleted" x="2482" y="0"/>
-</item>
-<item historyLabel="hwInvaders.c" index="16">
-<position info="not_deleted" x="3691" y="35"/>
-</item>
-<item historyLabel="emuInvaders.h" index="14">
-<position info="not_deleted" x="2482" y="0"/>
-</item>
-<item historyLabel="scrInvaders16bppPixelRenderer.c" index="17">
-<position info="not_deleted" x="3481" y="40"/>
-</item>
-<item historyLabel="emuInvaders.h" index="14">
-<position info="not_deleted" x="2482" y="0"/>
-</item>
-<item historyLabel="scrInvadersStatistics.c" index="19">
-<position info="not_deleted" x="1759" y="90"/>
-</item>
-<item historyLabel="emuInvaders.h" index="14">
-<position info="not_deleted" x="2655" y="0"/>
-</item>
-<item active="true" historyLabel="drvDACAudio.c" index="20">
-<position info="not_deleted" x="0" y="0"/>
+<item active="true" historyLabel="hwInvaders.c" index="3">
+<position info="not_deleted" x="4229" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -482,10 +515,41 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage" name="" tooltip="">
-<persistable>
-<org.coocox.welcome.ui.WelcomePage/>
-</persistable>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" name="startup_stm32f429xx.s" tooltip="STM32Invaders/LibOS/Driver Files/CMSIS/startup_stm32f429xx.s">
+<persistable path="/STM32Invaders/LibOS/Driver Files/CMSIS/startup_stm32f429xx.s"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="sysMain.c" tooltip="STM32Invaders/LibOS/Source Files/sysMain.c">
+<persistable path="/STM32Invaders/LibOS/Source Files/sysMain.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_def.h" tooltip="STM32Invaders/LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_def.h">
+<persistable path="/STM32Invaders/LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_def.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_dac_ex.c" tooltip="STM32Invaders/LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_dac_ex.c">
+<persistable path="/STM32Invaders/LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_dac_ex.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_dac.c" tooltip="STM32Invaders/LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_dac.c">
+<persistable path="/STM32Invaders/LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_dac.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_tim_ex.h" tooltip="STM32Invaders/LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_tim_ex.h">
+<persistable path="/STM32Invaders/LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_tim_ex.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_dac.h" tooltip="STM32Invaders/LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_dac.h">
+<persistable path="/STM32Invaders/LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_dac.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_conf.h" tooltip="STM32Invaders/Header Files/stm32f4xx_hal_conf.h">
+<persistable path="/STM32Invaders/Header Files/stm32f4xx_hal_conf.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_tim.h" tooltip="STM32Invaders/LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_tim.h">
+<persistable path="/STM32Invaders/LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_tim.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="sysConfig.h" tooltip="STM32Invaders/Header Files/sysConfig.h">
+<persistable path="/STM32Invaders/Header Files/sysConfig.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="drvHighresTimer.c" tooltip="STM32Invaders/LibOS/Driver Files/Source Files/drvHighresTimer.c">
+<persistable path="/STM32Invaders/LibOS/Driver Files/Source Files/drvHighresTimer.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_dma_ex.h" tooltip="STM32Invaders/LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_dma_ex.h">
+<persistable path="/STM32Invaders/LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_dma_ex.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="drvDACAudio.c" tooltip="STM32Invaders/LibOS/Driver Files/Source Files/drvDACAudio.c">
 <persistable path="/STM32Invaders/LibOS/Driver Files/Source Files/drvDACAudio.c"/>
@@ -493,41 +557,8 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="sysMain.h" tooltip="STM32Invaders/LibOS/Header Files/sysMain.h">
 <persistable path="/STM32Invaders/LibOS/Header Files/sysMain.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="hwInvaders.c" tooltip="STM32Invaders/LibEmu/Source Files/hwInvaders.c">
-<persistable path="/STM32Invaders/LibEmu/Source Files/hwInvaders.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="drvColorGraphics.c" tooltip="STM32Invaders/LibOS/Driver Files/Source Files/drvColorGraphics.c">
-<persistable path="/STM32Invaders/LibOS/Driver Files/Source Files/drvColorGraphics.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="guiColorGraphics.c" tooltip="STM32Invaders/LibOS/Source Files/guiColorGraphics.c">
-<persistable path="/STM32Invaders/LibOS/Source Files/guiColorGraphics.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="sysInitialize.c" tooltip="STM32Invaders/Source Files/sysInitialize.c">
-<persistable path="/STM32Invaders/Source Files/sysInitialize.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="sysInitialize.c" tooltip="STM32Invaders/LibOS/Source Files/sysInitialize.c">
-<persistable path="/STM32Invaders/LibOS/Source Files/sysInitialize.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="drvColorGraphicsDisplay.c" tooltip="STM32Invaders/LibOS/Driver Files/Source Files/drvColorGraphicsDisplay.c">
-<persistable path="/STM32Invaders/LibOS/Driver Files/Source Files/drvColorGraphicsDisplay.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="sysConfig.h" tooltip="STM32Invaders/Header Files/sysConfig.h">
-<persistable path="/STM32Invaders/Header Files/sysConfig.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="sysMain.c" tooltip="STM32Invaders/LibOS/Source Files/sysMain.c">
-<persistable path="/STM32Invaders/LibOS/Source Files/sysMain.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" name="startup_stm32f429xx.s" tooltip="STM32Invaders/LibOS/Driver Files/CMSIS/startup_stm32f429xx.s">
-<persistable path="/STM32Invaders/LibOS/Driver Files/CMSIS/startup_stm32f429xx.s"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="waveMixer.c" tooltip="STM32Invaders/LibOS/Source Files/waveMixer.c">
-<persistable path="/STM32Invaders/LibOS/Source Files/waveMixer.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="scrInvadersStatistics.c" tooltip="STM32Invaders/LibEmu/Source Files/scrInvadersStatistics.c">
-<persistable path="/STM32Invaders/LibEmu/Source Files/scrInvadersStatistics.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="scrInvaders16bppPixelRenderer.c" tooltip="STM32Invaders/LibEmu/Source Files/scrInvaders16bppPixelRenderer.c">
-<persistable path="/STM32Invaders/LibEmu/Source Files/scrInvaders16bppPixelRenderer.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="sysMain.h" tooltip="STM32Invaders/LibOS/Header Files/sysMain.h">
+<persistable path="/STM32Invaders/LibOS/Header Files/sysMain.h"/>
 </file>
 </mruList>
 </workbench>

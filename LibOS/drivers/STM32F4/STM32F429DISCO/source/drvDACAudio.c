@@ -15,6 +15,7 @@
 #include <stm32f4xx_hal.h>
 #include <stm32f4xx_hal_dma_ex.h>
 #include <drvWavePlayer.h>
+#include <drvHelpers.h>
 
 /*****************************************************************************/
 /* Constants                                                                 */
@@ -39,7 +40,7 @@ volatile drvWavePlayerBufferStatus l_wave_buffer2_status = drvWP_BS_Empty;
 
 static DMA_HandleTypeDef l_dac_dma_handle;
 static DAC_HandleTypeDef l_dac_handle;
-
+static TIM_HandleTypeDef l_timer_handle;
 
 /*****************************************************************************/
 /* Function implementation                                                   */
@@ -51,6 +52,7 @@ void drvWavePlayerInitialize(void)
 {
   DAC_ChannelConfTypeDef sConfig;
 	GPIO_InitTypeDef GPIO_InitStruct;
+  TIM_MasterConfigTypeDef sMasterConfig;
 
 	// enable DAC clock
   __DAC_CLK_ENABLE();
@@ -91,9 +93,25 @@ void drvWavePlayerInitialize(void)
   HAL_NVIC_SetPriority(DMA1_Stream6_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream6_IRQn);
 
+  // setup timer
+  __TIM6_CLK_ENABLE();
+
+  l_timer_handle.Instance = TIM6;
+  l_timer_handle.Init.Prescaler = 0;
+  l_timer_handle.Init.CounterMode = TIM_COUNTERMODE_UP;
+  l_timer_handle.Init.Period = drvTimerGetSourceFrequency(6) / drvWAVEPLAYER_SAMPLE_RATE - 1;
+  HAL_TIM_Base_Init(&l_timer_handle);
+
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  HAL_TIMEx_MasterConfigSynchronization(&l_timer_handle, &sMasterConfig);
+
   // Start DMA
+  HAL_DMAEx_MultiBufferStart_IT(&l_dac_dma_handle, (uint32_t)l_wave_buffer1, (uint32_t)&l_dac_handle.Instance->DHR12R2, (uint32_t)l_wave_buffer2, drvWAVEPLAYER_BUFFER_LENGTH);
 
-
+  HAL_DAC_Start(&l_dac_handle, DAC_CHANNEL_2);
+  l_dac_handle.Instance->CR |= DAC_CR_DMAEN2;
+  HAL_TIM_Base_Start(&l_timer_handle);
 }
 
 ///////////////////////////////////////////////////////////////////////////////

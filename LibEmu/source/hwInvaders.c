@@ -107,7 +107,6 @@ void emuInvadersInitialize(void)
 	l_cpu_load_sum = 0;
 	l_cpu_load_count = 0;
 #endif
-
 }
 
 ///////////////////////////////////////////////////////////////////////////////
