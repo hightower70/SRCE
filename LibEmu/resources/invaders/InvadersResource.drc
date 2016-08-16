@@ -1,0 +1,51 @@
+; ************************
+; * Set compiler options *
+; ************************
+
+; ** Declaration file **
+-cdecl:emuInvadersResource.h
+
+; ** Output file **
+-output:emuInvadersResource.c
+
+; ** Linker script **
+-linkerscript:linker.xml
+
+; ** Detailed information display
+-verbose
+
+; ***************
+; * Add Bitmaps *
+; ***************
+-bitmap:background.bmp,BMP_BACKGROUND, rgb565rev
+
+; *************
+; * Add Fonts *
+; *************
+;-font:himalaya.fna,FNA_HIMALAYA
+
+
+; ***************
+; * Add Strings *
+; ***************
+
+; ***************
+; * Add Strings *
+; ***************
+
+; ***************
+; * Add Waves   *
+; ***************
+-wave:BaseHit.wav,WAV_BASE_HIT
+-wave:InvHit.wav,WAV_INV_HIT
+-wave:Shot.wav,WAV_SHOT
+-wave:Ufo.wav,WAV_UFO
+-wave:UfoHit.wav,WAV_UFO_HIT
+-wave:Walk1.wav,WAV_WALK1
+-wave:Walk2.wav,WAV_WALK2
+-wave:Walk3.wav,WAV_WALK3
+-wave:Walk4.wav,WAV_WALK4
+
+; **************
+; * Add Binary *
+; **************

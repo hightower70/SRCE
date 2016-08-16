@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<linkerscript>
+	<!-- Linker output settings -->
+	<linker>
+		<fileformat>C</fileformat>
+		<startaddress>0x8000</startaddress>
+		<type>unsigned const char</type>
+		<variable>g_resource_file</variable>
+    <addressmode>absolute</addressmode>
+	</linker>
+</linkerscript>

@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Project version="2G - 2.0.3" name="STM32Invaders">
+  <Target name="STM32Invaders" isCurrent="1">
+    <Device manufacturerId="9" manufacturerName="ST" chipId="287" chipName="STM32F429ZI" boardId="" boardName="" boardUrl="" coreId="4" coreName="Cortex M4"/>
+    <BuildOption>
+      <Compile>
+        <Option name="OptimizationLevel" value="5"/>
+        <Option name="UseFPU" value="0"/>
+        <Option name="UserEditCompiler" value=""/>
+        <Option name="SupportCPlusplus" value="0"/>
+        <Option name="DEBUG" value="2"/>
+        <Option name="WARNING" value="1"/>
+        <Includepaths>
+          <Includepath path="."/>
+        </Includepaths>
+        <DefinedSymbols>
+          <Define name="STM32F429ZI"/>
+          <Define name="STM32F429xx"/>
+        </DefinedSymbols>
+      </Compile>
+      <Link useDefault="0">
+        <Option name="DiscardUnusedSection" value="0"/>
+        <Option name="UserEditLinkder" value=""/>
+        <Option name="UseMemoryLayout" value="1"/>
+        <Option name="nostartfiles" value="0"/>
+        <Option name="LTO" value="0"/>
+        <Option name="IsNewStartupCode" value="1"/>
+        <LinkedLibraries/>
+        <MemoryAreas debugInFlashNotRAM="1">
+          <Memory name="IROM1" type="ReadOnly" size="0x00200000" startValue="0x08000000"/>
+          <Memory name="IRAM1" type="ReadWrite" size="0x00030000" startValue="0x20000000"/>
+          <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
+          <Memory name="IRAM2" type="ReadWrite" size="" startValue=""/>
+        </MemoryAreas>
+        <LocateLinkFile path="c:/users/arvai.laszlo/appdata/roaming/coocox/coide/configuration/programdata/stm32invaders/arm-gcc-link.ld" type="0"/>
+      </Link>
+      <Output>
+        <Option name="OutputFileType" value="0"/>
+        <Option name="Path" value="./"/>
+        <Option name="Name" value="STM32Invaders"/>
+        <Option name="HEX" value="1"/>
+        <Option name="BIN" value="1"/>
+      </Output>
+      <User>
+        <UserRun name="Run#1" type="Before" checked="0" value=""/>
+        <UserRun name="Run#1" type="After" checked="0" value=""/>
+      </User>
+    </BuildOption>
+    <DebugOption>
+      <Option name="org.coocox.codebugger.gdbjtag.core.adapter" value="ST-Link"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.debugMode" value="SWD"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.clockDiv" value="1M"/>
+      <Option name="org.coocox.codebugger.gdbjtag.corerunToMain" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkgdbserver" value=""/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.userDefineGDBScript" value=""/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.targetEndianess" value="0"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkResetMode" value="Type 0: Normal"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.resetMode" value="SYSRESETREQ"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifSemihost" value="0"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifCacheRom" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ipAddress" value="127.0.0.1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.portNumber" value="2009"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.autoDownload" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="C:\Users\arvai.laszlo\AppData\Roaming\CooCox\CoIDE\config\flash\CooCox-Flash\CoIDE_STM32F4xx_2048K\STM32F4xx_2048.elf"/>
+    </DebugOption>
+    <ExcludeFile/>
+  </Target>
+  <Components path="./"/>
+  <LocalComponents/>
+  <Files>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f417xx.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f417xx.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_sd.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_sd.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/core_cmSimd.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/core_cmSimd.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/core_cmInstr.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/core_cmInstr.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_tim_ex.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_tim_ex.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/core_sc000.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/core_sc000.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_uart.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_uart.c" type="1"/>
+    <File name="LibOS/Header Files/fileUtils.h" path="../../LibOS/include/fileUtils.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_conf_template.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_conf_template.h" type="1"/>
+    <File name="LibOS/Source Files/sysMain.c" path="../../LibOS/source/sysMain.c" type="1"/>
+    <File name="LibOS/Header Files/fileVolumes.h" path="../../LibOS/include/fileVolumes.h" type="1"/>
+    <File name="LibOS/Source Files/sysTimer.c" path="../../LibOS/source/sysTimer.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f401xe.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f401xe.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_hash_ex.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_hash_ex.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_hcd.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_hcd.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_spdifrx.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_spdifrx.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_sd.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_sd.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_adc_ex.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_adc_ex.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_dcmi_ex.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_dcmi_ex.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_rng.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_rng.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_rng.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_rng.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_i2c.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_i2c.h" type="1"/>
+    <File name="LibOS/Driver Files" path="" type="2"/>
+    <File name="LibOS/Source Files" path="" type="2"/>
+    <File name="LibOS/Header Files/fileSDCard.h" path="../../LibOS/include/fileSDCard.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_rcc.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_rcc.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_pccard.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_pccard.h" type="1"/>
+    <File name="LibEmu/Source Files/scrInvaders16bppPixelRenderer.c" path="../../LibEmu/source/scrInvaders16bppPixelRenderer.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f427xx.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f427xx.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_def.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_def.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/core_cm0plus.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/core_cm0plus.h" type="1"/>
+    <File name="LibEmu/Header Files/cpuI8080.h" path="../../LibEmu/include/cpuI8080.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal.c" type="1"/>
+    <File name="Source Files" path="" type="2"/>
+    <File name="LibOS/Driver Files/Source Files/drvColorGraphics.c" path="../../LibOS/drivers/STM32F4/STM32F429DISCO/source/drvColorGraphics.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_spdifrx.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_spdifrx.h" type="1"/>
+    <File name="LibEmu/Header Files/emuInvaders.h" path="../../LibEmu/include/emuInvaders.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_cryp_ex.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_cryp_ex.c" type="1"/>
+    <File name="LibOS/Driver Files/Source Files/drvColorGraphicsDisplay.c" path="../../LibOS/drivers/STM32F4/STM32F429DISCO/source/drvColorGraphicsDisplay.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f405xx.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f405xx.h" type="1"/>
+    <File name="LibOS/Header Files/sysString.h" path="../../LibOS/include/sysString.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/core_cmFunc.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/core_cmFunc.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_flash.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_flash.h" type="1"/>
+    <File name="Header Files/sysConfig.h" path="include/sysConfig.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_can.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_can.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_cryp_ex.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_cryp_ex.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_i2s.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_i2s.h" type="1"/>
+    <File name="LibOS/Header Files/fbBuffer.h" path="../../LibOS/include/fbBuffer.h" type="1"/>
+    <File name="LibOS/Driver Files/Header Files/drvLCDSPI.h" path="../../LibOS/drivers/STM32F4/STM32F429DISCO/include/drvLCDSPI.h" type="1"/>
+    <File name="LibEmu/Header Files" path="" type="2"/>
+    <File name="LibOS/Driver Files/Header Files" path="" type="2"/>
+    <File name="LibOS/Header Files/drvBlackAndWhiteGraphics.h" path="../../LibOS/include/drvBlackAndWhiteGraphics.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_rcc_ex.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_rcc_ex.c" type="1"/>
+    <File name="LibOS/Header Files/sysTypes.h" path="../../LibOS/include/sysTypes.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_wwdg.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_wwdg.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f410rx.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f410rx.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_smartcard.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_smartcard.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_fmpi2c.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_fmpi2c.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_flash_ex.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_flash_ex.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f415xx.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f415xx.h" type="1"/>
+    <File name="LibOS/Header Files/cpCodePages.h" path="../../LibOS/include/cpCodePages.h" type="1"/>
+    <File name="LibOS/Header Files/drvStatLED.h" path="../../LibOS/include/drvStatLED.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_fmpi2c.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_fmpi2c.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/arm_common_tables.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/arm_common_tables.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/core_cm4.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/core_cm4.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_dac_ex.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_dac_ex.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_hcd.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_hcd.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_ll_fsmc.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_ll_fsmc.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_dcmi_ex.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_dcmi_ex.c" type="1"/>
+    <File name="LibOS/Header Files/drvMassStorage.h" path="../../LibOS/include/drvMassStorage.h" type="1"/>
+    <File name="LibOS/Driver Files/Source Files/drvHighresTimer.c" path="../../LibOS/drivers/STM32F4/STM32F429DISCO/source/drvHighresTimer.c" type="1"/>
+    <File name="LibOS/Header Files/fbFileBrowser.h" path="../../LibOS/include/fbFileBrowser.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f410tx.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f410tx.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_sai_ex.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_sai_ex.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f437xx.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f437xx.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f429xx.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f429xx.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_cec.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_cec.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_adc.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_adc.h" type="1"/>
+    <File name="LibOS/Header Files/fileFAT.h" path="../../LibOS/include/fileFAT.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_pcd_ex.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_pcd_ex.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_wwdg.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_wwdg.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f407xx.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f407xx.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f401xc.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f401xc.h" type="1"/>
+    <File name="LibOS/Driver Files/Source Files/drvDACAudio.c" path="../../LibOS/drivers/STM32F4/STM32F429DISCO/source/drvDACAudio.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_irda.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_irda.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_sram.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_sram.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_hash_ex.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_hash_ex.h" type="1"/>
+    <File name="LibOS/Header Files/sysUserInput.h" path="../../LibOS/include/sysUserInput.h" type="1"/>
+    <File name="LibOS/Source Files/waveMixer.c" path="../../LibOS/source/waveMixer.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_pcd.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_pcd.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_irda.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_irda.c" type="1"/>
+    <File name="Source Files/sysMainTask.c" path="source/sysMainTask.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_pwr.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_pwr.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_ltdc.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_ltdc.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_nor.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_nor.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_cortex.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_cortex.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_flash_ex.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_flash_ex.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_dma_ex.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_dma_ex.h" type="1"/>
+    <File name="LibOS/Header Files/guiCommon.h" path="../../LibOS/include/guiCommon.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/arm_const_structs.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/arm_const_structs.h" type="1"/>
+    <File name="LibEmu/Source Files" path="" type="2"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_hash.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_hash.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f479xx.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f479xx.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_sram.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_sram.h" type="1"/>
+    <File name="LibOS/Driver Files/Source Files/system_stm32f4xx.c" path="../../LibOS/drivers/STM32F4/STM32F429DISCO/source/system_stm32f4xx.c" type="1"/>
+    <File name="LibOS/Driver Files/Source Files" path="" type="2"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_dsi.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_dsi.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_lptim.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_lptim.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_i2s_ex.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_i2s_ex.h" type="1"/>
+    <File name="LibEmu/Source Files/hwInvaders.c" path="../../LibEmu/source/hwInvaders.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_spi.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_spi.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_ll_sdmmc.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_ll_sdmmc.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_cortex.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_cortex.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_fmpi2c_ex.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_fmpi2c_ex.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_flash.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_flash.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_nor.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_nor.h" type="1"/>
+    <File name="LibOS/Source Files/sysString.c" path="../../LibOS/source/sysString.c" type="1"/>
+    <File name="LibOS/Header Files/sysVirtualKeyboardCodes.h" path="../../LibOS/include/sysVirtualKeyboardCodes.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_dac.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_dac.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_gpio_ex.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_gpio_ex.h" type="1"/>
+    <File name="LibOS/Source Files/sysHighresTimer.c" path="../../LibOS/source/sysHighresTimer.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/core_cm0.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/core_cm0.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_i2s_ex.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_i2s_ex.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_pccard.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_pccard.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f411xe.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f411xe.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_rtc_ex.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_rtc_ex.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_qspi.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_qspi.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/startup_stm32f429xx.s" path="../../LibOS/drivers/STM32F4/CMSIS/startup/startup_stm32f429xx.s" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_eth.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_eth.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_eth.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_eth.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_dma.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_dma.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_iwdg.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_iwdg.c" type="1"/>
+    <File name="LibOS/Header Files/drvGraphicsDisplay.h" path="../../LibOS/include/drvGraphicsDisplay.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_rtc.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_rtc.c" type="1"/>
+    <File name="LibOS/Header Files/fileWave.h" path="../../LibOS/include/fileWave.h" type="1"/>
+    <File name="LibOS/Source Files/guiCommon.c" path="../../LibOS/source/guiCommon.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_pcd.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_pcd.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_cryp.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_cryp.h" type="1"/>
+    <File name="LibOS/Header Files/drvResources.h" path="../../LibOS/include/drvResources.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_sai.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_sai.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_dac_ex.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_dac_ex.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS" path="" type="2"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_sdram.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_sdram.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_cec.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_cec.h" type="1"/>
+    <File name="LibOS/Header Files/waveMixer.h" path="../../LibOS/include/waveMixer.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f439xx.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f439xx.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f410cx.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f410cx.h" type="1"/>
+    <File name="LibOS/Header Files/fbFileEnumerator.h" path="../../LibOS/include/fbFileEnumerator.h" type="1"/>
+    <File name="LibOS/Header Files/fileTypes.h" path="../../LibOS/include/fileTypes.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_i2c.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_i2c.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_dma2d.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_dma2d.h" type="1"/>
+    <File name="LibOS/Driver Files/Source Files/drvHelpers.c" path="../../LibOS/drivers/STM32F4/STM32F429DISCO/source/drvHelpers.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_i2c_ex.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_i2c_ex.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_rcc.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_rcc.c" type="1"/>
+    <File name="LibOS/Driver Files/Source Files/drvStatLED.c" path="../../LibOS/drivers/STM32F4/STM32F429DISCO/source/drvStatLED.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_adc_ex.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_adc_ex.c" type="1"/>
+    <File name="LibOS/Header Files/drvKeyboardScancodeMapper.h" path="../../LibOS/include/drvKeyboardScancodeMapper.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_dcmi.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_dcmi.c" type="1"/>
+    <File name="LibOS/Driver Files/Source Files/drvSystemTimer.c" path="../../LibOS/drivers/STM32F4/STM32F429DISCO/source/drvSystemTimer.c" type="1"/>
+    <File name="LibEmu" path="" type="2"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_iwdg.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_iwdg.h" type="1"/>
+    <File name="LibOS/Driver Files/Source Files/drvLCDSPI.c" path="../../LibOS/drivers/STM32F4/STM32F429DISCO/source/drvLCDSPI.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_tim_ex.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_tim_ex.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_crc.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_crc.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/core_cm7.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/core_cm7.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_flash_ramfunc.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_flash_ramfunc.h" type="1"/>
+    <File name="LibOS" path="" type="2"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_pcd_ex.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_pcd_ex.h" type="1"/>
+    <File name="LibOS/Header Files/drvColorGraphics.h" path="../../LibOS/include/drvColorGraphics.h" type="1"/>
+    <File name="LibOS/Header Files/drvWavePlayer.h" path="../../LibOS/include/drvWavePlayer.h" type="1"/>
+    <File name="LibOS/Driver Files/Header Files/drvILI9341.h" path="../../LibOS/drivers/STM32F4/STM32F429DISCO/include/drvILI9341.h" type="1"/>
+    <File name="LibEmu/Source Files/cpuI8080.c" path="../../LibEmu/source/cpuI8080.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_adc.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_adc.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_pwr_ex.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_pwr_ex.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_nand.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_nand.c" type="1"/>
+    <File name="LibOS/Header Files/drvColorGraphicsRenderer.h" path="../../LibOS/include/drvColorGraphicsRenderer.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_usart.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_usart.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_rtc.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_rtc.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_ll_fmc.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_ll_fmc.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_hash.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_hash.c" type="1"/>
+    <File name="LibOS/Header Files/guiColors.h" path="../../LibOS/include/guiColors.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_gpio.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_gpio.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_rcc_ex.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_rcc_ex.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/core_sc300.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/core_sc300.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_dma2d.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_dma2d.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files" path="" type="2"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_ll_fmc.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_ll_fmc.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_pwr_ex.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_pwr_ex.h" type="1"/>
+    <File name="LibOS/Header Files/guiBlackAndWhiteGraphics.h" path="../../LibOS/include/guiBlackAndWhiteGraphics.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_nand.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_nand.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_i2c_ex.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_i2c_ex.c" type="1"/>
+    <File name="LibOS/Header Files/fileStandardFunctions.h" path="../../LibOS/include/fileStandardFunctions.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_cryp.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_cryp.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f446xx.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f446xx.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_ll_usb.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_ll_usb.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_usart.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_usart.h" type="1"/>
+    <File name="LibOS/Header Files/sysPackEnd.h" path="../../LibOS/include/sysPackEnd.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_i2s.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_i2s.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_gpio.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_gpio.c" type="1"/>
+    <File name="LibOS/Header Files/sysHighresTimer.h" path="../../LibOS/include/sysHighresTimer.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_can.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_can.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_dcmi.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_dcmi.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_ll_sdmmc.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_ll_sdmmc.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_dac.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_dac.c" type="1"/>
+    <File name="Resource Files" path="" type="2"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_sai_ex.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_sai_ex.c" type="1"/>
+    <File name="LibOS/Header Files/sysTimer.h" path="../../LibOS/include/sysTimer.h" type="1"/>
+    <File name="LibOS/Driver Files/Header Files/drvHelpers.h" path="../../LibOS/drivers/STM32F4/STM32F429DISCO/include/drvHelpers.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/system_stm32f4xx.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/system_stm32f4xx.h" type="1"/>
+    <File name="LibOS/Header Files/gcmGraphicsConfigMenu.h" path="../../LibOS/include/gcmGraphicsConfigMenu.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_dma_ex.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_dma_ex.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_ll_fsmc.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_ll_fsmc.h" type="1"/>
+    <File name="LibOS/Header Files/gcmRenderer.h" path="../../LibOS/include/gcmRenderer.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_rtc_ex.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_rtc_ex.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_spi.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_spi.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/arm_math.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/arm_math.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files" path="" type="2"/>
+    <File name="LibEmu/Source Files/scrInvadersStatistics.c" path="../../LibEmu/source/scrInvadersStatistics.c" type="1"/>
+    <File name="LibOS/Driver Files/Source Files/drvColorGraphicsDMA2DRenderer.c" path="../../LibOS/drivers/STM32F4/STM32F429DISCO/source/drvColorGraphicsDMA2DRenderer.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_lptim.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_lptim.h" type="1"/>
+    <File name="Resource Files/emuInvadersResource.c" path="resources/emuInvadersResource.c" type="1"/>
+    <File name="LibOS/Header Files/fbRenderer.h" path="../../LibOS/include/fbRenderer.h" type="1"/>
+    <File name="LibOS/Header Files/sysMain.h" path="../../LibOS/include/sysMain.h" type="1"/>
+    <File name="LibOS/Header Files/guiTypes.h" path="../../LibOS/include/guiTypes.h" type="1"/>
+    <File name="LibOS/Driver Files/Header Files/drvSDRAM.h" path="../../LibOS/drivers/STM32F4/STM32F429DISCO/include/drvSDRAM.h" type="1"/>
+    <File name="Header Files" path="" type="2"/>
+    <File name="Resource Files/emuInvadersResource.h" path="resources/emuInvadersResource.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_ltdc_ex.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_ltdc_ex.c" type="1"/>
+    <File name="LibOS/Header Files/fbTypes.h" path="../../LibOS/include/fbTypes.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_ltdc_ex.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_ltdc_ex.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_dsi.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_dsi.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_dma.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_dma.h" type="1"/>
+    <File name="Resource Files/romInvaders.c" path="../../LibEmu/resources/invaders/romInvaders.c" type="1"/>
+    <File name="LibOS/Header Files/sysDateTime.h" path="../../LibOS/include/sysDateTime.h" type="1"/>
+    <File name="LibOS/Header Files/fbIconMapper.h" path="../../LibOS/include/fbIconMapper.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_uart.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_uart.h" type="1"/>
+    <File name="LibOS/Header Files/guiColorGraphics.h" path="../../LibOS/include/guiColorGraphics.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_sai.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_sai.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_smartcard.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_smartcard.h" type="1"/>
+    <File name="LibOS/Driver Files/Source Files/drvSDRAM.c" path="../../LibOS/drivers/STM32F4/STM32F429DISCO/source/drvSDRAM.c" type="1"/>
+    <File name="LibOS/Header Files" path="" type="2"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/core_cm3.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/core_cm3.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_tim.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_tim.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_fmpi2c_ex.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_fmpi2c_ex.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_ltdc.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_ltdc.h" type="1"/>
+    <File name="Source Files/sysInitialize.c" path="source/sysInitialize.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_ll_usb.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_ll_usb.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_tim.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_tim.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_crc.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_crc.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_pwr.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_pwr.c" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal_qspi.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal_qspi.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_flash_ramfunc.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_flash_ramfunc.c" type="1"/>
+    <File name="LibOS/Header Files/sysPackStart.h" path="../../LibOS/include/sysPackStart.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f469xx.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f469xx.h" type="1"/>
+    <File name="Header Files/stm32f4xx_hal_conf.h" path="include/stm32f4xx_hal_conf.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Header Files/stm32f4xx_hal.h" path="../../LibOS/drivers/STM32F4/CMSIS/include/stm32f4xx_hal.h" type="1"/>
+    <File name="LibOS/Driver Files/CMSIS/Source Files/stm32f4xx_hal_sdram.c" path="../../LibOS/drivers/STM32F4/CMSIS/source/stm32f4xx_hal_sdram.c" type="1"/>
+    <File name="LibOS/Source Files/guiColorGraphics.c" path="../../LibOS/source/guiColorGraphics.c" type="1"/>
+    <File name="LibOS/Source Files/drvResourceArray.c" path="../../LibOS/drivers/drvResourceArray.c" type="1"/>
+  </Files>
+  <Bookmarks/>
+</Project>

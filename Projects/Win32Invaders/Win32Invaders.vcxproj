@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{EDE1360D-A0E5-49AF-9233-57A6E7D4A6EA}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Win32Invaders</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\LibEmu\include;..\..\LibOS\include;.\include;.\resources;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\LibEmu\include\cpuI8080.h" />
+    <ClInclude Include="..\..\LibEmu\include\emuInvaders.h" />
+    <ClInclude Include="..\..\LibOS\include\cpCodePages.h" />
+    <ClInclude Include="..\..\LibOS\include\drvBlackAndWhiteGraphics.h" />
+    <ClInclude Include="..\..\LibOS\include\drvColorGraphics.h" />
+    <ClInclude Include="..\..\LibOS\include\drvKeyboardScancodeMapper.h" />
+    <ClInclude Include="..\..\LibOS\include\drvMassStorage.h" />
+    <ClInclude Include="..\..\LibOS\include\drvResources.h" />
+    <ClInclude Include="..\..\LibOS\include\drvWavePlayer.h" />
+    <ClInclude Include="..\..\LibOS\include\fbBuffer.h" />
+    <ClInclude Include="..\..\LibOS\include\fbFileBrowser.h" />
+    <ClInclude Include="..\..\LibOS\include\fbFileEnumerator.h" />
+    <ClInclude Include="..\..\LibOS\include\fbIconMapper.h" />
+    <ClInclude Include="..\..\LibOS\include\fbRenderer.h" />
+    <ClInclude Include="..\..\LibOS\include\fbTypes.h" />
+    <ClInclude Include="..\..\LibOS\include\fileFAT.h" />
+    <ClInclude Include="..\..\LibOS\include\fileSDCard.h" />
+    <ClInclude Include="..\..\LibOS\include\fileStandardFunctions.h" />
+    <ClInclude Include="..\..\LibOS\include\fileTypes.h" />
+    <ClInclude Include="..\..\LibOS\include\fileUtils.h" />
+    <ClInclude Include="..\..\LibOS\include\fileVolumes.h" />
+    <ClInclude Include="..\..\LibOS\include\fileWave.h" />
+    <ClInclude Include="..\..\LibOS\include\gcmGraphicsConfigMenu.h" />
+    <ClInclude Include="..\..\LibOS\include\gcmRenderer.h" />
+    <ClInclude Include="..\..\LibOS\include\guiBlackAndWhiteGraphics.h" />
+    <ClInclude Include="..\..\LibOS\include\guiColorGraphics.h" />
+    <ClInclude Include="..\..\LibOS\include\guiCommon.h" />
+    <ClInclude Include="..\..\LibOS\include\guiTypes.h" />
+    <ClInclude Include="..\..\LibOS\include\sysDateTime.h" />
+    <ClInclude Include="..\..\LibOS\include\sysHighresTimer.h" />
+    <ClInclude Include="..\..\LibOS\include\sysPackEnd.h" />
+    <ClInclude Include="..\..\LibOS\include\sysPackStart.h" />
+    <ClInclude Include="..\..\LibOS\include\sysString.h" />
+    <ClInclude Include="..\..\LibOS\include\sysTimer.h" />
+    <ClInclude Include="..\..\LibOS\include\sysTypes.h" />
+    <ClInclude Include="..\..\LibOS\include\sysUserInput.h" />
+    <ClInclude Include="..\..\LibOS\include\sysVirtualKeyboardCodes.h" />
+    <ClInclude Include="..\..\LibOS\include\waveMixer.h" />
+    <ClInclude Include="include\sysConfig.h" />
+    <ClInclude Include="resources\emuInvadersResource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\LibEmu\resources\invaders\romInvaders.c" />
+    <ClCompile Include="..\..\LibEmu\source\cpuI8080.c" />
+    <ClCompile Include="..\..\LibEmu\source\hwInvaders.c" />
+    <ClCompile Include="..\..\LibEmu\source\scrInvaders16bppPixelRenderer.c" />
+    <ClCompile Include="..\..\LibEmu\source\scrInvadersStatistics.c" />
+    <ClCompile Include="..\..\LibOS\drivers\drvColorGraphicsSWRenderer.c" />
+    <ClCompile Include="..\..\LibOS\drivers\drvResourceArray.c" />
+    <ClCompile Include="..\..\LibOS\drivers\Win32\drvColorGraphics.c" />
+    <ClCompile Include="..\..\LibOS\drivers\Win32\drvGraphicsDisplayEmulator.c" />
+    <ClCompile Include="..\..\LibOS\drivers\Win32\drvHighresTimer.c" />
+    <ClCompile Include="..\..\LibOS\drivers\Win32\drvSystemTimer.c" />
+    <ClCompile Include="..\..\LibOS\drivers\Win32\drvWavePlayer.c" />
+    <ClCompile Include="..\..\LibOS\drivers\Win32\drvWinMain.c" />
+    <ClCompile Include="..\..\LibOS\source\guiColorGraphics.c" />
+    <ClCompile Include="..\..\LibOS\source\guiCommon.c" />
+    <ClCompile Include="..\..\LibOS\source\sysString.c" />
+    <ClCompile Include="..\..\LibOS\source\sysTimer.c" />
+    <ClCompile Include="..\..\LibOS\source\waveMixer.c" />
+    <ClCompile Include="resources\emuInvadersResource.c" />
+    <ClCompile Include="source\sysInitialization.c" />
+    <ClCompile Include="source\sysMain.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
