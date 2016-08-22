@@ -171,6 +171,7 @@
     <ClInclude Include="..\..\LibOS\include\guiColorGraphics.h" />
     <ClInclude Include="..\..\LibOS\include\guiCommon.h" />
     <ClInclude Include="..\..\LibOS\include\guiTypes.h" />
+    <ClInclude Include="..\..\LibOS\include\sysCPUload.h" />
     <ClInclude Include="..\..\LibOS\include\sysDateTime.h" />
     <ClInclude Include="..\..\LibOS\include\sysHighresTimer.h" />
     <ClInclude Include="..\..\LibOS\include\sysPackEnd.h" />
@@ -200,6 +201,7 @@
     <ClCompile Include="..\..\LibOS\drivers\Win32\drvWinMain.c" />
     <ClCompile Include="..\..\LibOS\source\guiColorGraphics.c" />
     <ClCompile Include="..\..\LibOS\source\guiCommon.c" />
+    <ClCompile Include="..\..\LibOS\source\sysCPULoad.c" />
     <ClCompile Include="..\..\LibOS\source\sysString.c" />
     <ClCompile Include="..\..\LibOS\source\sysTimer.c" />
     <ClCompile Include="..\..\LibOS\source\waveMixer.c" />

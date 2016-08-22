@@ -50,7 +50,7 @@ extern const unsigned char g_cpu_rom[];
 /* Function prototypes                                                       */
 /*****************************************************************************/
 void emuInvadersInitialize(void);
-void emuInvadersTask(void);
+bool emuInvadersTask(void);
 void emuInvadersRenderScanLine(uint16_t in_line_index);
 
 void emuInvadersRendererInitialize(void);

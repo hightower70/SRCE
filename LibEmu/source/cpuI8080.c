@@ -69,7 +69,6 @@ static uint8_t l_cpu_szp_flags[256] =
 // Look-up tables for auxilary carry calculation 
 static const uint8_t l_cpu_inr_aux[16]=	{	cpuI8080_F_AUXCARRY, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 static const uint8_t l_cpu_dcr_aux[16]= {	cpuI8080_F_AUXCARRY, cpuI8080_F_AUXCARRY, cpuI8080_F_AUXCARRY, cpuI8080_F_AUXCARRY, cpuI8080_F_AUXCARRY, cpuI8080_F_AUXCARRY, cpuI8080_F_AUXCARRY, cpuI8080_F_AUXCARRY, cpuI8080_F_AUXCARRY, cpuI8080_F_AUXCARRY, cpuI8080_F_AUXCARRY, cpuI8080_F_AUXCARRY, cpuI8080_F_AUXCARRY, cpuI8080_F_AUXCARRY, cpuI8080_F_AUXCARRY, 0 };
-//static const uint8_t l_cpu_add_aux[8] = { 0, 0, cpuI8080_F_AUXCARRY, 0, cpuI8080_F_AUXCARRY, 0, cpuI8080_F_AUXCARRY, cpuI8080_F_AUXCARRY };
 static const uint8_t l_cpu_sub_aux[8] = { cpuI8080_F_AUXCARRY, 0, 0, 0, cpuI8080_F_AUXCARRY, cpuI8080_F_AUXCARRY, cpuI8080_F_AUXCARRY, 0 };
 
 #if PROFILE

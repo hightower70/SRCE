@@ -1,49 +1,43 @@
 /*****************************************************************************/
-/* Main Entry Function                                                       */
+/* Standard digital joystick driver for STM32F429DISCO                       */
 /*                                                                           */
-/* Copyright (C) 2016 Laszlo Arvai                                           */
+/* Copyright (C) 2015 Laszlo Arvai                                           */
 /* All rights reserved.                                                      */
 /*                                                                           */
 /* This software may be modified and distributed under the terms             */
 /* of the GNU General Public License.  See the LICENSE file for details.     */
 /*****************************************************************************/
 
+#ifndef __drvJoystick_h
+#define __drvJoystick_h
+
 /*****************************************************************************/
 /* Includes                                                                  */
 /*****************************************************************************/
-#include <sysMain.h>
-#include <drvStatLED.h>
-#include <sysTimer.h>
-#include <drvJoystickAndButtons.h>
-#include <emuInvaders.h>
+#include <sysTypes.h>
+#include <sysUserInput.h>
 
 /*****************************************************************************/
-/* Module global variables                                                   */
+/* Types                                                                     */
 /*****************************************************************************/
-static sysTimeStamp l_led_timestamp = 0;
-static uint8_t l_led_value = 0;
-
-/*****************************************************************************/
-/* Function implementation                                                   */
-/*****************************************************************************/
-
-///////////////////////////////////////////////////////////////////////////////
-/// @brief Main task
-void sysMainTask(void)
+typedef struct
 {
-	emuInvadersTask();
+  uint16_t KeyCode;   // keycode to issue when button is pressed
+  GPIO_TypeDef* Port; // Port where the button is connected
+  const uint16_t Pin; // Pin where the button is connected
+  const int Pressed;	// Port bit value when button is pressed (1 - logic high, 0 - logic low for button press)
+} drvJoystickButtonInfo;
 
-	drvJoystickAndButtonsUpdate();
+/*****************************************************************************/
+/* External variables                                                        */
+/*****************************************************************************/
+extern drvJoystickButtonInfo g_joystick_button_info[];
 
-	// Stat LED
-	if(sysTimerGetTimeSince(l_led_timestamp) > 500)
-	{
-		l_led_timestamp = sysTimerGetTimestamp();
-
-		l_led_value = 1 - l_led_value;
-
-		drvStatLEDSetDim(l_led_value);
-	}
-}
+/*****************************************************************************/
+/* Function prototypes                                                       */
+/*****************************************************************************/
+void drvJoystickInitialize(void);
+void drvJoystickUpdate(void);
 
 
+#endif

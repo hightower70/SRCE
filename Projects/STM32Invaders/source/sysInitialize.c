@@ -20,6 +20,7 @@
 #include <sysHighresTimer.h>
 #include <guiColorGraphics.h>
 #include <emuInvaders.h>
+#include <drvJoystick.h>
 #include <stm32f4xx_hal.h>
 
 /*****************************************************************************/
@@ -57,8 +58,14 @@ void sysInitialize(void)
   drvStatLEDInit();
   drvSDRAMInitialize();
   guiColorGraphicsInitialize();
+  drvJoystickInitialize();
+
 
   emuInvadersInitialize();
 }
 
+void sysUserInputEventHandler(uint8_t in_device_number, sysUserInputEventCategory in_event_category, sysUserInputEventType in_event_type, uint32_t in_event_param)
+{
+	emuUserInputEventHandler(in_device_number, in_event_category, in_event_type, in_event_param);
+}
 

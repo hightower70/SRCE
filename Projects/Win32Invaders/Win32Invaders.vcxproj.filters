@@ -152,6 +152,9 @@
     <ClInclude Include="resources\emuInvadersResource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\LibOS\include\sysCPUload.h">
+      <Filter>LibOS\include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\sysInitialization.c">
@@ -216,6 +219,9 @@
     </ClCompile>
     <ClCompile Include="resources\emuInvadersResource.c">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\LibOS\source\sysCPULoad.c">
+      <Filter>LibOS\source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

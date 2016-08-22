@@ -25,7 +25,6 @@
 /*****************************************************************************/
 #define emuINVADERS_FRAME_TIME (1000000 / emuINVADERS_FRAME_RATE) // frame time in us
 #define emuINVADERS_CYCLES_PER_FRAME (emuINVADERS_CPU_CLOCK / emuINVADERS_FRAME_RATE) // number of CPU clock cycles per frame
-#define emuINVADERS_MAX_DROPPED_FRAMES 60
 
 /*****************************************************************************/
 /* Global variables                                                          */
@@ -45,9 +44,6 @@ static cpuI8080State l_invaders_cpu;
 static uint16_t l_current_scanline = 0;
 static sysHighresTimestamp l_half_frame_timestamp;
 static uint32_t l_cycles_per_frame;
-static bool l_drop_next_frame;
-static bool l_drop_frame;
-static uint8_t l_droped_frame_counter;
 
 // diagnostics variables
 #ifdef emuDIAG_DISPLAY_STATISTICS
@@ -93,8 +89,6 @@ void emuInvadersInitialize(void)
 
 	// init variables
 	l_current_scanline = 0;
-	l_drop_next_frame = false;
-	l_droped_frame_counter = 0;
 	l_half_frame_timestamp = sysHighresTimerGetTimestamp();
 
 #ifdef emuDIAG_DISPLAY_STATISTICS
@@ -111,12 +105,12 @@ void emuInvadersInitialize(void)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// @brief Emulator task
-void emuInvadersTask(void)
+bool emuInvadersTask(void)
 {
 	uint8_t free_wave_buffer_index;
 	int expected_cycle_per_frame;
 	int cycles_left;
-	uint32_t half_frame_ellapsed_time;
+	bool busy = false;
 #ifdef emuDIAG_DISPLAY_STATISTICS
 	uint32_t ellapsed_statistics_time;
 #endif
@@ -126,22 +120,12 @@ void emuInvadersTask(void)
 	{
 		sysHighresTimerAddToTimestamp(&l_half_frame_timestamp, emuINVADERS_FRAME_TIME / 2);
 
+		busy = true;
+
 		if(l_current_scanline == 0)
 		{
 			// reset cycle counter
 			l_cycles_per_frame = 0;
-
-			// handle frame drop
-			if(l_droped_frame_counter >= emuINVADERS_MAX_DROPPED_FRAMES)
-			{
-				l_drop_next_frame = false;
-				l_droped_frame_counter = 0;
-			}
-
-			l_drop_frame = l_drop_next_frame;
-
-			if(l_drop_frame)
-				l_droped_frame_counter++;
 
 			// render the first half of the screen
 			while(l_current_scanline  < emuINVADERS_SCREEN_WIDTH / 2)
@@ -153,10 +137,6 @@ void emuInvadersTask(void)
 				l_cpu_cycles += expected_cycle_per_frame - l_cycles_per_frame - cycles_left;
 #endif
 				l_cycles_per_frame += expected_cycle_per_frame - l_cycles_per_frame - cycles_left;
-
-				// render scanline
-				if(!l_drop_frame)
-					emuInvadersRenderScanLine(l_current_scanline);
 
 				// next scanline
 				l_current_scanline++;
@@ -178,10 +158,6 @@ void emuInvadersTask(void)
 #endif
 				l_cycles_per_frame += expected_cycle_per_frame - l_cycles_per_frame - cycles_left;
 
-				// render scanline
-				if(!l_drop_frame)
-					emuInvadersRenderScanLine(l_current_scanline);
-
 				// next scanline
 				l_current_scanline++;
 			}
@@ -189,39 +165,19 @@ void emuInvadersTask(void)
 			// vsync interrupt
 			cpuI8080INT(&l_invaders_cpu, cpuI8080_RST2);
 
-			// execute code for the vsync
-			if(l_cycles_per_frame < emuINVADERS_CYCLES_PER_FRAME)
-			{
-				cpuI8080Exec(&l_invaders_cpu, emuINVADERS_CYCLES_PER_FRAME - l_cycles_per_frame);
-			}
-
 			// first scanline
 			l_current_scanline = 0;
 
 #ifdef emuDIAG_DISPLAY_STATISTICS
-			if(!l_drop_frame)
-				l_frame_counter++;
+			l_frame_counter++;
 #endif
 
 			// refresh content of the screen
-			if(!l_drop_frame)
-				guiRefreshScreen();
-		}
-
-		// check for frame drop
-		half_frame_ellapsed_time = sysHighresTimerGetTimeSince(l_half_frame_timestamp);
-		if(half_frame_ellapsed_time > (emuINVADERS_FRAME_TIME / 2 - 1000))
-		{
-			l_drop_next_frame = true;
-		}
-		else
-		{
-			l_drop_next_frame = false;
-			l_droped_frame_counter = 0;
+			guiRefreshScreen();
 		}
 
 #ifdef emuDIAG_DISPLAY_STATISTICS
-		l_cpu_load_sum += half_frame_ellapsed_time * 1000 / (emuINVADERS_FRAME_TIME / 2);
+		l_cpu_load_sum += sysHighresTimerGetTimeSince(l_half_frame_timestamp) * 1000 / (emuINVADERS_FRAME_TIME / 2);
 		l_cpu_load_count++;
 #endif
 	}
@@ -231,6 +187,7 @@ void emuInvadersTask(void)
 	ellapsed_statistics_time = sysHighresTimerGetTimeSince(l_statistics_timestamp);
 	if(ellapsed_statistics_time > 1000000)
 	{
+		busy = true;
 		l_frame_rate = (uint16_t)((uint32_t)l_frame_counter * 10000000 / ellapsed_statistics_time); // calculate frame rate / 10
 		l_cpu_frequency = (uint32_t)l_cpu_cycles * 1000 / ellapsed_statistics_time; // cpu clock * 1000
 
@@ -254,9 +211,12 @@ void emuInvadersTask(void)
 	free_wave_buffer_index = drvWavePlayerGetFreeBufferIndex();
 	if(free_wave_buffer_index != waveMIXER_INVALID_CHANNEL)
 	{
+		busy = true;
 		waveMixerRenderStream(&l_wave_mixer_state, drvWaveGetBuffer(free_wave_buffer_index), drvWAVEPLAYER_BUFFER_LENGTH);
 		drvWavePlayerPlayBuffer(free_wave_buffer_index);
 	}
+
+	return busy;
 }
 
 /*****************************************************************************/
