@@ -30,6 +30,9 @@
     <Filter Include="LibOS\source">
       <UniqueIdentifier>{0504904a-dae5-4bc6-bba9-105850705f12}</UniqueIdentifier>
     </Filter>
+    <Filter Include="LibOS\hal">
+      <UniqueIdentifier>{f758ad2e-729a-43c7-ac32-a5da58de3a39}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\sysConfig.h">
@@ -57,9 +60,6 @@
       <Filter>LibOS\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\LibOS\include\drvResources.h">
-      <Filter>LibOS\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\LibOS\include\drvWavePlayer.h">
       <Filter>LibOS\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\LibOS\include\fbBuffer.h">
@@ -155,12 +155,12 @@
     <ClInclude Include="..\..\LibOS\include\sysCPUload.h">
       <Filter>LibOS\include</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\LibOS\include\halWavePlayer.h">
+      <Filter>LibOS\include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\sysInitialization.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\sysMain.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\LibEmu\source\cpuI8080.c">
@@ -179,9 +179,6 @@
       <Filter>LibOS\drivers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\LibOS\drivers\Win32\drvSystemTimer.c">
-      <Filter>LibOS\drivers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\LibOS\drivers\Win32\drvWavePlayer.c">
       <Filter>LibOS\drivers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\LibOS\drivers\Win32\drvWinMain.c">
@@ -222,6 +219,12 @@
     </ClCompile>
     <ClCompile Include="..\..\LibOS\source\sysCPULoad.c">
       <Filter>LibOS\source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sysMain.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\LibOS\hal\Windows\halWavePlayer.c">
+      <Filter>LibOS\hal</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

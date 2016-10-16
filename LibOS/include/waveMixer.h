@@ -15,7 +15,7 @@
 /* Includes                                                                  */
 /*****************************************************************************/
 #include <sysTypes.h>
-#include <drvWavePlayer.h>
+#include <halWavePlayer.h>
 #include <drvResources.h>
 
 /*****************************************************************************/
@@ -56,6 +56,6 @@ void waveMixerInitialize(waveMixerState* in_state);
 uint8_t waveMixerPlayWaveFromResource(waveMixerState* in_state, sysResourceAddress in_resouce_adress, uint32_t in_flags);
 void waveMixerStopWave(waveMixerState* in_state, uint8_t in_channel_to_stop);
 
-void waveMixerRenderStream(waveMixerState* in_state, drvWavePlayerBufferType* in_render_buffer, uint32_t in_sample_count);
+void waveMixerRenderStream(waveMixerState* in_state, halWavePlayerBufferType* in_render_buffer, uint32_t in_sample_count);
 
 #endif

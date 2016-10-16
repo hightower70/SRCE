@@ -30,9 +30,9 @@
 static uint16_t l_pixel_buffer[emuINVADERS_PIXEL_COUNT];
 
 // cached colors
-static guiDeviceColor l_white_pixel;
-static guiDeviceColor l_green_pixel;
-static guiDeviceColor l_red_pixel;
+static uint16_t l_white_pixel;
+static uint16_t l_green_pixel;
+static uint16_t l_red_pixel;
 
 // cached bitmap data
 static sysResourceAddress l_background_data;
@@ -74,18 +74,22 @@ static guiSize l_background_size;
 //|WHITE|          |         WHITE|
 // -------------------------------
 
+///////////////////////////////////////////////////////////////////////////////
+/// @brief Initializes invaders renderer
 void emuInvadersRendererInitialize(void)
 {
 	// cache pixel color
-	l_white_pixel = guiColorToDeviceColor(guiCOLOR_WHITE);
-	l_green_pixel = guiColorToDeviceColor(guiCOLOR_LIME);
-	l_red_pixel = guiColorToDeviceColor(guiCOLOR_RED);
+	l_white_pixel = guiColorToRGB565(guiCOLOR_WHITE);
+	l_green_pixel = guiColorToRGB565(guiCOLOR_LIME);
+	l_red_pixel = guiColorToRGB565(guiCOLOR_RED);
 
 	// cache bitmap data
 	l_background_data = guiGetBitmapData(REF_BMP_BACKGROUND);
 	l_background_size = guiGetBitmapSize(REF_BMP_BACKGROUND);
 }
 
+///////////////////////////////////////////////////////////////////////////////
+/// @brief Renders one byte (eight pixels) from the video memory using RGB565 format
 void emuInvadersRenderPixels(uint16_t in_memory_address, uint8_t in_data)
 {
 	guiCoordinate x, y;
@@ -95,8 +99,6 @@ void emuInvadersRenderPixels(uint16_t in_memory_address, uint8_t in_data)
 
 	x = in_memory_address / (emuINVADERS_SCREEN_HEIGHT / 8);
 	y = emuINVADERS_SCREEN_HEIGHT - in_memory_address % (emuINVADERS_SCREEN_HEIGHT / 8) * 8 - 8;
-
-	pixel_buffer_address = l_pixel_buffer;
 
 	background_data = l_background_data + l_background_size.Width * sizeof(uint16_t) * (emuINVADERS_SCREEN_TOP + y) + (emuINVADERS_SCREEN_LEFT + x) * sizeof(uint16_t);
 
@@ -139,27 +141,36 @@ void emuInvadersRenderPixels(uint16_t in_memory_address, uint8_t in_data)
 	}
 
 	// process one byte (8 pixel)
+	pixel_buffer_address = &l_pixel_buffer[0];
+
 	SET_PIXEL(pixel_buffer_address, in_data, 0x80, pixel_color, background_data);
 	pixel_buffer_address++;
 	background_data += l_background_size.Width * sizeof(uint16_t);
+
 	SET_PIXEL(pixel_buffer_address, in_data, 0x40, pixel_color, background_data);
 	pixel_buffer_address++;
 	background_data += l_background_size.Width * sizeof(uint16_t);
+
 	SET_PIXEL(pixel_buffer_address, in_data, 0x20, pixel_color, background_data);
 	pixel_buffer_address++;
 	background_data += l_background_size.Width * sizeof(uint16_t);
+	
 	SET_PIXEL(pixel_buffer_address, in_data, 0x10, pixel_color, background_data);
 	pixel_buffer_address++;
 	background_data += l_background_size.Width * sizeof(uint16_t);
+	
 	SET_PIXEL(pixel_buffer_address, in_data, 0x08, pixel_color, background_data);
 	pixel_buffer_address++;
 	background_data += l_background_size.Width * sizeof(uint16_t);
+	
 	SET_PIXEL(pixel_buffer_address, in_data, 0x04, pixel_color, background_data);
 	pixel_buffer_address++;
 	background_data += l_background_size.Width * sizeof(uint16_t);
+	
 	SET_PIXEL(pixel_buffer_address, in_data, 0x02, pixel_color, background_data);
 	pixel_buffer_address++;
 	background_data += l_background_size.Width * sizeof(uint16_t);
+	
 	SET_PIXEL(pixel_buffer_address, in_data, 0x01, pixel_color, background_data);
 
 	guiBitblt(x + emuINVADERS_SCREEN_LEFT, y + emuINVADERS_SCREEN_TOP, 1, emuINVADERS_PIXEL_COUNT, 0, 0, 1, emuINVADERS_PIXEL_COUNT, l_pixel_buffer, 16);

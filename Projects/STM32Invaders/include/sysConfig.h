@@ -24,6 +24,10 @@
 // Diagnostics
 #define emuDIAG_DISPLAY_STATISTICS 1
 
+#ifdef emuDIAG_DISPLAY_STATISTICS
+#define sysMEASURE_CPU_LOAD 1
+#endif
+
 ///////////////////////////////////////////////////////////////////////////////
 // SDRAM config
 #define drvSDRAM_START_ADDRESS     ((void*)0xD0000000)
@@ -259,5 +263,20 @@ typedef int sysResourceAddress;
 #define B7_PIN GPIO_PIN_9
 #define B7_GPIO_PORT GPIOB
 #endif
+
+
+
+#define OTG_FS_PSO_Pin GPIO_PIN_4
+#define OTG_FS_PSO_GPIO_Port GPIOC
+#define OTG_FS_OC_Pin GPIO_PIN_5
+#define OTG_FS_OC_GPIO_Port GPIOC
+#define OTG_FS_ID_Pin GPIO_PIN_12
+#define OTG_FS_ID_GPIO_Port GPIOB
+#define VBUS_FS_Pin GPIO_PIN_13
+#define VBUS_FS_GPIO_Port GPIOB
+#define OTG_FS_DM_Pin GPIO_PIN_14
+#define OTG_FS_DM_GPIO_Port GPIOB
+#define OTG_FS_DP_Pin GPIO_PIN_15
+#define OTG_FS_DP_GPIO_Port GPIOB
 
 #endif

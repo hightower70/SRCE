@@ -11,7 +11,6 @@
 /*****************************************************************************/
 /* Includes                                                                  */
 /*****************************************************************************/
-#include <stm32f4xx_hal.h>
 #include <sysTimer.h>
 #include <sysUserInput.h>
 //#include <drvHelpers.h>
@@ -65,7 +64,7 @@ void drvJoystickInitialize(void)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// @brief Updates joystick state and calls input event handler
-void drvJoystickAndButtonsUpdate(void)
+void drvJoystickUpdate(void)
 {
 	int one_button_state;
 	uint32_t current_button_state;
@@ -90,7 +89,7 @@ void drvJoystickAndButtonsUpdate(void)
 		// button debouncing
 		if(current_button_state != l_button_state)
 		{
-			// button is not stabile
+			// button is not stable
 			l_button_state = current_button_state;
 		}
 		else
@@ -104,7 +103,7 @@ void drvJoystickAndButtonsUpdate(void)
 				{
 					if((change_mask & (1<<i)) != 0 )
 					{
-						sysUserInputEventHandler(drvJOYSTICK_DEVICE_NUMBER, (((l_button_state >> i) & 0x01) != 0)?sysUIEC_Pressed:sysUIEC_Released, sysUIET_Key, g_joystick_button_info[i].KeyCode);
+						sysUserInputEventHandler(drvJOYSTICK_DEVICE_NUMBER, (((l_button_state >> i) & 0x01) != 0) ? sysUIEC_Pressed:sysUIEC_Released, sysUIET_Key, g_joystick_button_info[i].KeyCode);
 					}
 
 					i++;

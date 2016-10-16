@@ -208,12 +208,12 @@ bool emuInvadersTask(void)
 #endif
 
 	// render audio stream
-	free_wave_buffer_index = drvWavePlayerGetFreeBufferIndex();
+	free_wave_buffer_index = halWavePlayerGetFreeBufferIndex();
 	if(free_wave_buffer_index != waveMIXER_INVALID_CHANNEL)
 	{
 		busy = true;
-		waveMixerRenderStream(&l_wave_mixer_state, drvWaveGetBuffer(free_wave_buffer_index), drvWAVEPLAYER_BUFFER_LENGTH);
-		drvWavePlayerPlayBuffer(free_wave_buffer_index);
+		waveMixerRenderStream(&l_wave_mixer_state, halWaveGetBuffer(free_wave_buffer_index), halWAVEPLAYER_BUFFER_LENGTH);
+		halWavePlayerPlayBuffer(free_wave_buffer_index);
 	}
 
 	return busy;
@@ -263,7 +263,7 @@ void WrI8080(register uint16_t in_address, register uint8_t in_value)
   // write RAM
   g_cpu_ram[in_address] = in_value;
 
-  if(in_address > (emuINVADERS_VIDEO_RAM_START - emuINVADERS_RAM_START) )
+  if(in_address >= (emuINVADERS_VIDEO_RAM_START - emuINVADERS_RAM_START) )
   {
   	emuInvadersRenderPixels(in_address - (emuINVADERS_VIDEO_RAM_START - emuINVADERS_RAM_START), in_value);
   }

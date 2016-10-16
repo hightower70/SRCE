@@ -35,9 +35,9 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 // Wave config
-#define drvWAVEPLAYER_SAMPLE_RATE 44100
-#define drvWAVEPLAYER_SAMPLE_OFFSET 0
-#define drvWAVEPLAYER_SAMPLE_MULTIPLIER 64
+#define halWAVEPLAYER_SAMPLE_RATE 44100
+#define halWAVEPLAYER_SAMPLE_OFFSET 0
+#define halWAVEPLAYER_SAMPLE_MULTIPLIER 64
 
 ///////////////////////////////////////////////////////////////////////////////
 // Resource config

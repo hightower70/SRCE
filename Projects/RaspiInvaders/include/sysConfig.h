@@ -1,39 +1,46 @@
 /*****************************************************************************/
-/* System initialization function for win32                                  */
+/* Configuration for Linux application                                       */
 /*                                                                           */
-/* Copyright (C) 2016 Laszlo Arvai                                           */
+/* Copyright (C) 2015 Laszlo Arvai                                           */
 /* All rights reserved.                                                      */
 /*                                                                           */
 /* This software may be modified and distributed under the terms             */
 /* of the GNU General Public License.  See the LICENSE file for details.     */
 /*****************************************************************************/
+#ifndef __sysConfig_h
+#define __sysConfig_h
 
 /*****************************************************************************/
 /* Includes                                                                  */
 /*****************************************************************************/
-#include <sysUserInput.h>
-#include <guiColorGraphics.h>
-#include <halWavePlayer.h>
-#include <sysHighresTimer.h>
-#include "sysConfig.h"
-
+#include <sysTypes.h>
 
 /*****************************************************************************/
-/* Function implementation                                                   */
+/* Constants                                                                 */
 /*****************************************************************************/
+///////////////////////////////////////////////////////////////////////////////
+// Diagnostics
+#define emuDIAG_DISPLAY_STATISTICS 1
 
 ///////////////////////////////////////////////////////////////////////////////
-/// @brief System initialization function
-void sysInitialization(void)
-{
-	sysHighresTimerInit();
-	guiColorGraphicsInitialize();
-	emuInvadersInitialize();
-}
+// GUI Config
+#define guiSCREEN_WIDTH 240
+#define guiSCREEN_HEIGHT 320
+
+#define guiCOLOR_DEPTH 24
+
+#define guiemuZOOM 1
+#define guiemuBACKGROUND_COLOR 0x00000000
+#define guiemuFOREGROUND_COLOR 0xffffffff
 
 ///////////////////////////////////////////////////////////////////////////////
-/// @brief Cleans up system
-void sysCleanup(void)
-{
-	halWavePlayerCleanUp();
-}
+// Wave config
+#define halWAVEPLAYER_SAMPLE_RATE 44100
+#define halWAVEPLAYER_SAMPLE_OFFSET 0
+#define halWAVEPLAYER_SAMPLE_MULTIPLIER 64
+
+///////////////////////////////////////////////////////////////////////////////
+// Resource config
+typedef int sysResourceAddress;
+
+#endif

@@ -7,14 +7,20 @@
 /* This software may be modified and distributed under the terms             */
 /* of the GNU General Public License.  See the LICENSE file for details.     */
 /*****************************************************************************/
+
+/*****************************************************************************/
+/* Includes                                                                  */
+/*****************************************************************************/
 #include <guiTypes.h>
 #include <drvResources.h>
+#include <guiColorGraphics.h>
 
-///////////////////////////////////////////////////////////////////////////////
-// Module global variables
-static guiColor		 l_background_color;
-static guiColor		 l_foreground_color;
-
+/*****************************************************************************/
+/* Module global variables                                                   */
+/*****************************************************************************/
+static guiDeviceColor l_background_color;
+static bool l_transparent_background = false;
+static guiDeviceColor l_foreground_color;
 
 extern void*	g_gui_screen_pixels;
 extern int		g_gui_screen_line_size;    // Size in bytes of a bitmap scanline
@@ -31,7 +37,7 @@ void drvColorGraphicsRendererInitialize(void)
 /// @param in_color Color for foreground
 void guiSetForegroundColor(guiColor in_color)
 {
-	l_foreground_color = in_color;
+	l_foreground_color = guiColorToDeviceColor(in_color);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -39,7 +45,9 @@ void guiSetForegroundColor(guiColor in_color)
 /// @param in_color Color for background
 void guiSetBackgroundColor(guiColor in_color)
 {
-	l_background_color = in_color;
+	l_background_color = guiColorToDeviceColor(in_color);
+
+	l_transparent_background = guiIS_TRANSPARENT_COLOR(in_color);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -49,14 +57,37 @@ void guiSetBackgroundColor(guiColor in_color)
 /// @return Color of the pixel
 guiColor guiGetPixelColor(guiCoordinate in_x, guiCoordinate in_y)
 {
+	uint8_t r, g, b;
+#if guiCOLOR_DEPTH == 24
 	uint8_t* pixel;
- 
+#elif guiCOLOR_DEPTH == 16
+	guiDeviceColor pixel;
+#endif
+
 	if( in_x < 0 || in_x >= guiSCREEN_WIDTH || in_y < 0 || in_y >= guiSCREEN_HEIGHT )
 		return 0;
 
-	pixel = (uint8_t*)g_gui_screen_pixels + in_y * g_gui_screen_line_size + in_x * 3;	// RGB 24 mode
+#if guiCOLOR_DEPTH == 24
+	pixel = (uint8_t*)g_gui_screen_pixels + in_y * g_gui_screen_line_size + in_x * (guiCOLOR_DEPTH / 8);
+	r = *pixel++;
+	g = *pixel++;
+	b = *pixel;
+#elif guiCOLOR_DEPTH == 16
+	pixel = *(guiDeviceColor*)((uint8_t*)g_gui_screen_pixels + in_y * g_gui_screen_line_size + in_x * (guiCOLOR_DEPTH / 8));
+
+	r = (pixel >> (6 + 5)) & 0x01F;
+	g = (pixel >> 5) & 0x03F;
+	b = (pixel) & 0x01F;
+
+	//RGB888 - amplify
+	r <<= 3;
+	g <<= 2;
+	b <<= 3;
+#else
+#error Invalid color depth
+#endif
 	
-	return pixel[0] | ((guiColor)pixel[1] << 8) | ((guiColor)pixel[2] << 16);
+	return r | (g << 8) | (b << 16);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -70,10 +101,17 @@ void guiSetForegroundPixel(guiCoordinate in_x, guiCoordinate in_y)
 	if( in_x < 0 || in_x >= guiSCREEN_WIDTH || in_y < 0 || in_y >= guiSCREEN_HEIGHT)
 		return;
 
-	pixel = (uint8_t*)g_gui_screen_pixels  + in_y * g_gui_screen_line_size  + in_x * 3;
+	pixel = (uint8_t*)g_gui_screen_pixels  + in_y * g_gui_screen_line_size  + in_x * (guiCOLOR_DEPTH / 8);
+
+#if guiCOLOR_DEPTH == 24
 	*pixel++ = (uint8_t)(l_foreground_color );			// R
 	*pixel++ = (uint8_t)(l_foreground_color >> 8);	// G
 	*pixel   = (uint8_t)(l_foreground_color >> 16);	// B
+#elif guiCOLOR_DEPTH == 16
+	*(guiDeviceColor*)pixel = l_foreground_color;
+#else
+#error Invalid color depth
+#endif
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -84,13 +122,19 @@ void guiSetBackgroundPixel(guiCoordinate in_x, guiCoordinate in_y)
 {
 	uint8_t* pixel;
 	
-	if( /*l_background_color == guiCOLOR_TRANSPARENT || */in_x < 0 || in_x >= guiSCREEN_WIDTH || in_y < 0 || in_y >= guiSCREEN_HEIGHT)
+	if( l_transparent_background || in_x < 0 || in_x >= guiSCREEN_WIDTH || in_y < 0 || in_y >= guiSCREEN_HEIGHT)
 		return;
 
-	pixel = (uint8_t*)g_gui_screen_pixels  + in_y * g_gui_screen_line_size  + in_x * 3;
+	pixel = (uint8_t*)g_gui_screen_pixels  + in_y * g_gui_screen_line_size  + in_x * (guiCOLOR_DEPTH / 8);
+#if guiCOLOR_DEPTH == 24
 	*pixel++ = (uint8_t)(l_background_color );			// R
 	*pixel++ = (uint8_t)(l_background_color >> 8);	// G
 	*pixel   = (uint8_t)(l_background_color >> 16);	// B
+#elif guiCOLOR_DEPTH == 16
+	* (guiDeviceColor*)pixel = l_background_color;
+#else
+#error Invalid color depth
+#endif
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -101,9 +145,15 @@ void guiSetBackgroundPixel(guiCoordinate in_x, guiCoordinate in_y)
 /// @param in_height height of the rectangle
 void drvColorGraphicsFillArea(guiCoordinate in_x1, guiCoordinate in_y1, guiCoordinate in_x2, guiCoordinate in_y2)
 {
+#if guiCOLOR_DEPTH == 24
 	uint8_t* pixel;
-	guiCoordinate x, y;
 	uint8_t red, green, blue;
+#elif guiCOLOR_DEPTH == 16
+	guiDeviceColor* pixel;
+#else
+#error Invalid color depth
+#endif
+	guiCoordinate x, y;
 
 	// check coordinate
 	if(in_x1 > guiSCREEN_WIDTH)
@@ -119,6 +169,7 @@ void drvColorGraphicsFillArea(guiCoordinate in_x1, guiCoordinate in_y1, guiCoord
 	if(in_y2 >= guiSCREEN_HEIGHT)
 		in_y2 = guiSCREEN_HEIGHT - 1;
 
+#if guiCOLOR_DEPTH == 24
 	red = (l_foreground_color & 0xff);				// R
 	green = (l_foreground_color >> 8) & 0xff; // G
 	blue = (l_foreground_color >> 16) & 0xff;	// B
@@ -127,7 +178,7 @@ void drvColorGraphicsFillArea(guiCoordinate in_x1, guiCoordinate in_y1, guiCoord
 
 	for(y = in_y1; y <= in_y2; y++)
 	{
-		pixel = (uint8_t*)g_gui_screen_pixels  + y * g_gui_screen_line_size  + in_x1 * 3;
+		pixel = (uint8_t*)g_gui_screen_pixels  + y * g_gui_screen_line_size  + in_x1 * (guiCOLOR_DEPTH / 8);
 		for(x = in_x1; x <= in_x2; x++)
 		{
 			*pixel++ = red;
@@ -135,6 +186,18 @@ void drvColorGraphicsFillArea(guiCoordinate in_x1, guiCoordinate in_y1, guiCoord
 			*pixel++ = blue;
 		}
 	}
+#elif guiCOLOR_DEPTH == 16
+	for (y = in_y1; y <= in_y2; y++)
+	{
+		pixel = (guiDeviceColor*)((uint8_t*)g_gui_screen_pixels + y * g_gui_screen_line_size + in_x1 * (guiCOLOR_DEPTH / 8));
+		for (x = in_x1; x <= in_x2; x++)
+		{
+			*pixel++ = l_foreground_color;
+		}
+	}
+#else
+#error Invalid color depth
+#endif
 }
 
 
@@ -156,7 +219,9 @@ void drvColorGraphicsBitBltFromResource(guiCoordinate in_destination_x, guiCoord
 	uint16_t bitmap_x;
 	uint16_t bitmap_y;
 	sysResourceAddress source_pixel;
+#if guiCOLOR_DEPTH == 24
 	uint8_t red, green, blue;
+#endif
 	uint8_t* destination_pixel;
 
 	switch(in_source_bit_per_pixel)
@@ -194,8 +259,9 @@ void drvColorGraphicsBitBltFromResource(guiCoordinate in_destination_x, guiCoord
 			for(bitmap_y = 0; bitmap_y < in_source_height; bitmap_y++)
 			{
 				source_pixel = in_source_bitmap + row_byte_count * bitmap_y;
-				destination_pixel = (uint8_t*)g_gui_screen_pixels  + (bitmap_y + in_destination_y) * g_gui_screen_line_size  + in_destination_x * 3;
+				destination_pixel = (uint8_t*)g_gui_screen_pixels  + (bitmap_y + in_destination_y) * g_gui_screen_line_size  + in_destination_x * (guiCOLOR_DEPTH / 8);
 
+#if guiCOLOR_DEPTH == 24
 				for(bitmap_x = 0; bitmap_x < in_source_width; bitmap_x++)
 				{
 					// color low byte
@@ -213,6 +279,16 @@ void drvColorGraphicsBitBltFromResource(guiCoordinate in_destination_x, guiCoord
 					*destination_pixel++ = green;
 					*destination_pixel++ = red;
 				}
+#elif guiCOLOR_DEPTH == 16
+				for (bitmap_x = 0; bitmap_x < in_source_width; bitmap_x++)
+				{
+					*((guiDeviceColor*)destination_pixel) = drvResourceReadWord(source_pixel);
+					source_pixel += 2;
+					destination_pixel += 2;
+				}
+#else
+#error Invalid color depth
+#endif
 			}
 			break;
 	}
@@ -236,7 +312,9 @@ void drvColorGraphicsBitBlt(guiCoordinate in_destination_x, guiCoordinate in_des
 	uint16_t bitmap_x;
 	uint16_t bitmap_y;
 	uint8_t* source_pixel;
+#if guiCOLOR_DEPTH == 24
 	uint8_t red, green, blue;
+#endif
 	uint8_t* destination_pixel;
 
 	switch(in_source_bit_per_pixel)
@@ -273,8 +351,9 @@ void drvColorGraphicsBitBlt(guiCoordinate in_destination_x, guiCoordinate in_des
 			for(bitmap_y = 0; bitmap_y < in_source_height; bitmap_y++)
 			{
 				source_pixel = (uint8_t*)in_source_bitmap + row_byte_count * bitmap_y;
-				destination_pixel = (uint8_t*)g_gui_screen_pixels  + (bitmap_y + in_destination_y) * g_gui_screen_line_size  + in_destination_x * 3;
+				destination_pixel = (uint8_t*)g_gui_screen_pixels  + (bitmap_y + in_destination_y) * g_gui_screen_line_size  + in_destination_x * (guiCOLOR_DEPTH / 8);
 
+#if guiCOLOR_DEPTH == 24
 				for(bitmap_x = 0; bitmap_x < in_source_width; bitmap_x++)
 				{
 					// color low byte
@@ -287,12 +366,21 @@ void drvColorGraphicsBitBlt(guiCoordinate in_destination_x, guiCoordinate in_des
 					green |= (bitmap_data &0x07) << 5;
 					red = bitmap_data & 0xf8;
 
-
 					// store RGB pixel data
 					*destination_pixel++ = blue;
 					*destination_pixel++ = green;
 					*destination_pixel++ = red;
 				}
+#elif guiCOLOR_DEPTH == 16
+				for (bitmap_x = 0; bitmap_x < in_source_width; bitmap_x++)
+				{
+					*((guiDeviceColor*)destination_pixel) = *((guiDeviceColor*)source_pixel);
+					source_pixel += 2;
+					destination_pixel += 2;
+				}
+#else
+#error Invalid color depth
+#endif
 			}
 			break;
 	}

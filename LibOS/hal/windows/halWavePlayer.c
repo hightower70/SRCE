@@ -12,7 +12,7 @@
 /* Includes                                                                  */
 /*****************************************************************************/
 #include <Windows.h>
-#include <drvWavePlayer.h>
+#include <halWavePlayer.h>
 
 #pragma comment(lib,"Winmm.lib") // Winsock Library
 
@@ -25,7 +25,7 @@ typedef struct
 {
 	bool      Free;
 	WAVEHDR    Header;
-  drvWavePlayerBufferType Buffer[drvWAVEPLAYER_BUFFER_LENGTH];
+  halWavePlayerBufferType Buffer[halWAVEPLAYER_BUFFER_LENGTH];
 } WaveOutBuffer;
 
 /*****************************************************************************/
@@ -33,7 +33,7 @@ typedef struct
 /*****************************************************************************/
 static HWAVEOUT l_waveout_handle = NULL;
 static HANDLE l_waveout_event = NULL;
-static WaveOutBuffer l_waveout_buffer[drvWAVEPLAYER_BUFFER_COUNT];
+static WaveOutBuffer l_waveout_buffer[halWAVEPLAYER_BUFFER_COUNT];
 static DWORD	l_thread_id			= 0;
 static HANDLE	l_thread_handle = NULL;
 
@@ -43,7 +43,7 @@ static HANDLE	l_thread_handle = NULL;
 
 ///////////////////////////////////////////////////////////////////////////////
 /// @brief Opens wave output device
-void drvWavePlayerInitialize(void)
+void halWavePlayerInitialize(void)
 {
 	MMRESULT result;
   WAVEFORMATEX wave_format;
@@ -56,7 +56,7 @@ void drvWavePlayerInitialize(void)
 	wave_format.wBitsPerSample		= 16;
 	wave_format.wFormatTag				= WAVE_FORMAT_PCM;
 	wave_format.nChannels 				= 1;
-	wave_format.nSamplesPerSec		= drvWAVEPLAYER_SAMPLE_RATE;
+	wave_format.nSamplesPerSec		= halWAVEPLAYER_SAMPLE_RATE;
 	wave_format.nAvgBytesPerSec		= wave_format.nSamplesPerSec * wave_format.wBitsPerSample / 8;
 	wave_format.nBlockAlign 			= wave_format.wBitsPerSample * wave_format.nChannels / 8;
 
@@ -68,7 +68,7 @@ void drvWavePlayerInitialize(void)
   // prepare buffers
 	if(success)
   {
-		for(i = 0; i < drvWAVEPLAYER_BUFFER_COUNT; i++)
+		for(i = 0; i < halWAVEPLAYER_BUFFER_COUNT; i++)
 		{
 			ZeroMemory( &l_waveout_buffer[i].Header, sizeof( WAVEHDR ) );
 			l_waveout_buffer[i].Header.dwBufferLength = sizeof(l_waveout_buffer[i].Buffer);
@@ -81,7 +81,7 @@ void drvWavePlayerInitialize(void)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// @brief Closes wave output device
-void drvWavePlayerCleanUp(void)
+void halWavePlayerCleanUp(void)
 {
 	int i;
 
@@ -92,7 +92,7 @@ void drvWavePlayerCleanUp(void)
 		waveOutReset(l_waveout_handle);
 		
 		// reset buffers
-		for(i = 0; i < drvWAVEPLAYER_BUFFER_COUNT; i++)
+		for(i = 0; i < halWAVEPLAYER_BUFFER_COUNT; i++)
 		{
 			if(!l_waveout_buffer[i].Free && (l_waveout_buffer[i].Header.dwFlags & WHDR_DONE) != 0)
 			{
@@ -113,7 +113,7 @@ void drvWavePlayerCleanUp(void)
 ///////////////////////////////////////////////////////////////////////////////
 /// @brief Adds the specified buffer to the playback queue
 /// @param in_buffer_index Buffer index to add to the queue
-void drvWavePlayerPlayBuffer(uint8_t in_buffer_index)
+void halWavePlayerPlayBuffer(uint8_t in_buffer_index)
 {
 	// flag header
 	l_waveout_buffer[in_buffer_index].Free = false;
@@ -127,12 +127,12 @@ void drvWavePlayerPlayBuffer(uint8_t in_buffer_index)
 
 ///////////////////////////////////////////////////////////////////////////////
 /// @brief Gets next free buffer index
-uint8_t drvWavePlayerGetFreeBufferIndex(void)
+uint8_t halWavePlayerGetFreeBufferIndex(void)
 {
 	int i;
 
 	// check for free buffer
-	for(i = 0; i < drvWAVEPLAYER_BUFFER_COUNT; i++)
+	for(i = 0; i < halWAVEPLAYER_BUFFER_COUNT; i++)
 	{
 		if(l_waveout_buffer[i].Free)
 		{
@@ -154,16 +154,16 @@ uint8_t drvWavePlayerGetFreeBufferIndex(void)
 		}
 	}
 
-	return drvWAVEPLAYER_INVALID_BUFFER_INDEX;
+	return halWAVEPLAYER_INVALID_BUFFER_INDEX;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /// @brief Gets pointer to the wave data section of the given buffer
 /// @param in_buffer_index Index of the wave buffer
 /// @return Wave data pointer or null if index is invalid
-drvWavePlayerBufferType* drvWaveGetBuffer(uint8_t in_buffer_index)
+halWavePlayerBufferType* halWaveGetBuffer(uint8_t in_buffer_index)
 {
-	if (in_buffer_index < drvWAVEPLAYER_BUFFER_COUNT)
+	if (in_buffer_index < halWAVEPLAYER_BUFFER_COUNT)
 		return l_waveout_buffer[in_buffer_index].Buffer;
 	else
 		return sysNULL;

@@ -1,5 +1,6 @@
 /*****************************************************************************/
-/* High Resolution System timer (1us) routines                               */
+/* System timer (1ms) driver                                                 */
+/* (emulated on Win32)                                                       */
 /*                                                                           */
 /* Copyright (C) 2014-2015 Laszlo Arvai                                      */
 /* All rights reserved.                                                      */
@@ -8,30 +9,33 @@
 /* of the GNU General Public License.  See the LICENSE file for details.     */
 /*****************************************************************************/
 
-#ifndef __sysHighresTimer_h
-#define __sysHighresTimer_h
-
 /*****************************************************************************/
 /* Includes                                                                  */
 /*****************************************************************************/
-#include <sysTypes.h>
-#ifdef _WIN32
-
-#include <Windows.h>
-typedef LARGE_INTEGER sysHighresTimestamp;
-
-#else
-
-typedef uint32_t sysHighresTimestamp;
-#endif
+#include <stdio.h>
+#include <sys/time.h>
+#include <sysTimer.h>
 
 /*****************************************************************************/
-/* Function prototypes                                                       */
+/* Function implementation                                                   */
 /*****************************************************************************/
-void sysHighresTimerInitialize(void);
-void halHighresTimerInitialize(void);
-sysHighresTimestamp sysHighresTimerGetTimestamp(void);
-uint32_t sysHighresTimerGetTimeSince(sysHighresTimestamp in_timestamp_in_us);
-void sysHighresTimerAddToTimestamp(sysHighresTimestamp* in_timestamp, uint32_t in_value_in_us);
 
-#endif
+///////////////////////////////////////////////////////////////////////////////
+/// @brief Initializes system timer
+void drvSystemTimerInitialize(void)
+{
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// @brief Gets system timer current value (current timestamp)
+/// @return System timer value
+sysTimeStamp sysTimerGetTimestamp(void)
+{
+	struct timeval te; 
+	sysTimeStamp milliseconds;
+	
+	gettimeofday(&te, NULL); // get current time
+	milliseconds = te.tv_sec * 1000LL + te.tv_usec / 1000; // calculate milliseconds
+
+	return milliseconds;
+}

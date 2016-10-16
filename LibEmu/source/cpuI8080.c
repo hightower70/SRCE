@@ -76,7 +76,7 @@ static unsigned int lut_profiler[0x100]; /* occurance of opcodes */
 #endif
 
 /* opcode mnemonics (debug) */
-//#if defined(DEBUG) | defined(PROFILE)
+//#if defined(CPU_DEBUG) | defined(PROFILE)
 /*static*/ const char* lut_mnemonic[0x100]={
 	"nop",     "lxi b,#", "stax b",  "inx b",   "inr b",   "dcr b",   "mvi b,#", "rlc",     "ill",     "dad b",   "ldax b",  "dcx b",   "inr c",   "dcr c",   "mvi c,#", "rrc",
 	"ill",     "lxi d,#", "stax d",  "inx d",   "inr d",   "dcr d",   "mvi d,#", "ral",     "ill",     "dad d",   "ldax d",  "dcx d",   "inr e",   "dcr e",   "mvi e,#", "rar",
@@ -595,7 +595,7 @@ int cpuI8080Exec(cpuI8080State* R, int cycles)
 		default: break;
 		}
 
-#if defined(DEBUG)
+#if defined(CPU_DEBUG)
 		printf("%04x:%10s a%02X f%02X b%02X c%02X d%02X e%02X h%02X l%02X sp%04X\n",PC(R),lut_mnemonic[opcode],A(R),F(R),B(R),C(R),D(R),E(R),H(R),L(R),SP(R));
 #endif
 

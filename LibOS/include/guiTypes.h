@@ -10,6 +10,7 @@
 // Constants
 
 #define guiINVALID_COORDINATE -32768
+#define guiIS_TRANSPARENT_COLOR(x) ((x & 0xff000000) == 0)
 
 // Gui drawing mode
 #define guiDM_Inverse      (1<<1)
@@ -43,7 +44,7 @@
 typedef int16_t guiCoordinate;
 typedef uint32_t guiColor;
 
-#define guiRGBToColor(r,g,b) (((uint32_t)r << 16) + ((uint32_t)g << 8) + b)
+#define guiRGBToColor(r,g,b) (0xff000000u | ((uint32_t)r << 16) + ((uint32_t)g << 8) + b)
 
 #if !defined(guiCOLOR_DEPTH)
 #error The color depth of the graphics display (guiCOLOR_DEPTH) must be defined.
@@ -54,7 +55,7 @@ typedef uint32_t guiDeviceColor;
 #elif (guiCOLOR_DEPTH <= 16) && (guiCOLOR_DEPTH > 8)
 typedef uint16_t guiDeviceColor;
 #else
-typedef uint8_t guiDeviceColor;
+#error Invalid color depth
 #endif
 
 

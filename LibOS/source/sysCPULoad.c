@@ -1,5 +1,5 @@
 /*****************************************************************************/
-/* Main Entry Function                                                       */
+/* CPU Load monitor                                                          */
 /*                                                                           */
 /* Copyright (C) 2016 Laszlo Arvai                                           */
 /* All rights reserved.                                                      */
@@ -11,54 +11,55 @@
 /*****************************************************************************/
 /* Includes                                                                  */
 /*****************************************************************************/
-#include <sysMain.h>
-#include <drvStatLED.h>
-#include <sysTimer.h>
-#include <drvJoystick.h>
 #include <sysHighresTimer.h>
-#include <emuInvaders.h>
-#include <usb_host.h>
-
 
 /*****************************************************************************/
-/* Module global variables                                                   */
+/* Module local variables                                                    */
 /*****************************************************************************/
-static sysTimeStamp l_led_timestamp = 0;
-static uint8_t l_led_value = 0;
-
-#if	sysMEASURE_CPU_LOAD
-
-static sysHighresTimestamp l_cycle_start_timestamp;
-#endif
+static sysHighresTimestamp l_period_start;
+static sysHighresTimestamp l_load_start;
+static uint32_t l_busy_time;
 
 /*****************************************************************************/
 /* Function implementation                                                   */
 /*****************************************************************************/
 
 ///////////////////////////////////////////////////////////////////////////////
-/// @brief Main task
-void sysMainTask(void)
+/// @brief Enters monitored section
+void sysCPULoadEnterSection(void)
 {
-#if	sysMEASURE_CPU_LOAD
-	//l_cycle_start_timestamp = sysGe
-#endif
+	l_load_start = sysHighresTimerGetTimestamp();
+}
 
-
-	emuInvadersTask();
-
-	drvJoystickUpdate();
-
-	MX_USB_HOST_Process();
-
-	// Stat LED
-	if(sysTimerGetTimeSince(l_led_timestamp) > 500)
+///////////////////////////////////////////////////////////////////////////////
+/// @brief Exists monitored section
+/// @param in_busy True if the monitored section was active busy or false if it was idle
+void sysCPULoadExitSection(bool in_busy)
+{
+	if (in_busy)
 	{
-		l_led_timestamp = sysTimerGetTimestamp();
-
-		l_led_value = 1 - l_led_value;
-
-		drvStatLEDSetDim(l_led_value);
+		l_busy_time += sysHighresTimerGetTimeSince(l_load_start);
 	}
 }
 
+///////////////////////////////////////////////////////////////////////////////
+/// @brief Gets CPU load in percentage (this function must be called at least in every second in order to provide reliable result)
+/// @return CPU load in percentage
+uint8_t sysCPULoadGetLoad(void)
+{
+	uint8_t load;
+	uint32_t period_length;
 
+	period_length = sysHighresTimerGetTimeSince(l_period_start);
+
+	if (period_length == 0)
+		load = 0;
+	else
+		load = (uint8_t)(l_busy_time * 100 / period_length);
+
+	// restart period
+	l_period_start = sysHighresTimerGetTimestamp();
+	l_busy_time = 0;
+
+	return load;
+}

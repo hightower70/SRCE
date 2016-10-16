@@ -151,7 +151,7 @@
     <ClInclude Include="..\..\LibOS\include\drvKeyboardScancodeMapper.h" />
     <ClInclude Include="..\..\LibOS\include\drvMassStorage.h" />
     <ClInclude Include="..\..\LibOS\include\drvResources.h" />
-    <ClInclude Include="..\..\LibOS\include\drvWavePlayer.h" />
+    <ClInclude Include="..\..\LibOS\include\halWavePlayer.h" />
     <ClInclude Include="..\..\LibOS\include\fbBuffer.h" />
     <ClInclude Include="..\..\LibOS\include\fbFileBrowser.h" />
     <ClInclude Include="..\..\LibOS\include\fbFileEnumerator.h" />
@@ -197,8 +197,8 @@
     <ClCompile Include="..\..\LibOS\drivers\Win32\drvGraphicsDisplayEmulator.c" />
     <ClCompile Include="..\..\LibOS\drivers\Win32\drvHighresTimer.c" />
     <ClCompile Include="..\..\LibOS\drivers\Win32\drvSystemTimer.c" />
-    <ClCompile Include="..\..\LibOS\drivers\Win32\drvWavePlayer.c" />
     <ClCompile Include="..\..\LibOS\drivers\Win32\drvWinMain.c" />
+    <ClCompile Include="..\..\LibOS\hal\Windows\halWavePlayer.c" />
     <ClCompile Include="..\..\LibOS\source\guiColorGraphics.c" />
     <ClCompile Include="..\..\LibOS\source\guiCommon.c" />
     <ClCompile Include="..\..\LibOS\source\sysCPULoad.c" />

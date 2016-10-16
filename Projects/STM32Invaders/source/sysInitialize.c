@@ -22,6 +22,7 @@
 #include <emuInvaders.h>
 #include <drvJoystick.h>
 #include <stm32f4xx_hal.h>
+#include <usb_host.h>
 
 /*****************************************************************************/
 /* Module local functions                                                    */
@@ -59,6 +60,7 @@ void sysInitialize(void)
   drvSDRAMInitialize();
   guiColorGraphicsInitialize();
   drvJoystickInitialize();
+  MX_USB_HOST_Init();
 
 
   emuInvadersInitialize();

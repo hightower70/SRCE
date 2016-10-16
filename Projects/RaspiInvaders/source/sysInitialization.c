@@ -1,37 +1,42 @@
 /*****************************************************************************/
-/* High Resolution System timer (1us) routines                               */
+/* System initialization function for win32                                  */
 /*                                                                           */
-/* Copyright (C) 2014-2015 Laszlo Arvai                                      */
+/* Copyright (C) 2016 Laszlo Arvai                                           */
 /* All rights reserved.                                                      */
 /*                                                                           */
 /* This software may be modified and distributed under the terms             */
 /* of the GNU General Public License.  See the LICENSE file for details.     */
 /*****************************************************************************/
 
-#ifndef __sysHighresTimer_h
-#define __sysHighresTimer_h
-
 /*****************************************************************************/
 /* Includes                                                                  */
 /*****************************************************************************/
-#include <sysTypes.h>
-#ifdef _WIN32
+#include <sysUserInput.h>
+#include <guiColorGraphics.h>
+#include <halWavePlayer.h>
+#include <halKeyboardInput.h>
+#include <sysHighresTimer.h>
+#include "sysConfig.h"
 
-#include <Windows.h>
-typedef LARGE_INTEGER sysHighresTimestamp;
-
-#else
-
-typedef uint32_t sysHighresTimestamp;
-#endif
 
 /*****************************************************************************/
-/* Function prototypes                                                       */
+/* Function implementation                                                   */
 /*****************************************************************************/
-void sysHighresTimerInitialize(void);
-void halHighresTimerInitialize(void);
-sysHighresTimestamp sysHighresTimerGetTimestamp(void);
-uint32_t sysHighresTimerGetTimeSince(sysHighresTimestamp in_timestamp_in_us);
-void sysHighresTimerAddToTimestamp(sysHighresTimestamp* in_timestamp, uint32_t in_value_in_us);
 
-#endif
+///////////////////////////////////////////////////////////////////////////////
+/// @brief System initialization function
+void sysInitialization(void)
+{
+	halHighresTimerInit();
+	halKeyboardInputInitialize();
+	guiColorGraphicsInitialize();
+	emuInvadersInitialize();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// @brief Cleans up system
+void sysCleanup(void)
+{
+	halWavePlayerCleanUp();
+	halKeyboardInputCleanup();
+}

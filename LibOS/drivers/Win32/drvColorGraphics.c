@@ -17,9 +17,21 @@
 #include "sysConfig.h"
 
 /*****************************************************************************/
+/* Types                                                                     */
+/*****************************************************************************/
+#pragma pack(1)
+struct BITMAPINFOWITHMASK
+{
+	BITMAPINFOHEADER BitmapInfoHeader;
+	DWORD RedMask;
+	DWORD GreenMask;
+	DWORD BlueMask;
+};
+#pragma pack()
+/*****************************************************************************/
 /* Module global variables                                                   */
 /*****************************************************************************/
-static BITMAPINFO  l_bitmapinfo;
+static struct BITMAPINFOWITHMASK l_bitmap;
 static int         l_bitmapwidth;       // Width of bitmap in pixels
 static int         l_bitmapheight;      // Height of bitmap in pixels
 static HANDLE      l_hbm = NULL;        // Bitmap handle
@@ -46,21 +58,37 @@ void drvColorGraphicsInitialize(void)
     l_hdc = CreateCompatibleDC( 0 );
 
     // Create DIB section to hold bitmap data
-    ZeroMemory( &l_bitmapinfo, sizeof(l_bitmapinfo) );
-    l_bitmapinfo.bmiHeader.biSize = sizeof(l_bitmapinfo.bmiHeader);
-    l_bitmapinfo.bmiHeader.biWidth = guiSCREEN_WIDTH;
-    l_bitmapinfo.bmiHeader.biHeight = -guiSCREEN_HEIGHT; // Create top-down bitmap
-    l_bitmapinfo.bmiHeader.biPlanes = 1;
-    l_bitmapinfo.bmiHeader.biBitCount = 24;
-    l_bitmapinfo.bmiHeader.biCompression = BI_RGB;
-    l_bitmapinfo.bmiHeader.biSizeImage = 0;
-    l_bitmapinfo.bmiHeader.biXPelsPerMeter = 1;
-    l_bitmapinfo.bmiHeader.biYPelsPerMeter = 1;
-    l_bitmapinfo.bmiHeader.biClrUsed = 0;
-    l_bitmapinfo.bmiHeader.biClrImportant = 0;
+    ZeroMemory( &l_bitmap, sizeof(l_bitmap) );
+
+#if guiCOLOR_DEPTH == 24
+		l_bitmap.BitmapInfoHeader.biSize = sizeof(l_bitmap.BitmapInfoHeader);
+		l_bitmap.BitmapInfoHeader.biCompression = BI_RGB;
+#elif guiCOLOR_DEPTH == 16
+		l_bitmap.BitmapInfoHeader.biSize = sizeof(l_bitmap);
+		l_bitmap.BitmapInfoHeader.biCompression = BI_BITFIELDS;
+#else
+#error Unknown color depth
+#endif
+
+		l_bitmap.BitmapInfoHeader.biWidth = guiSCREEN_WIDTH;
+		l_bitmap.BitmapInfoHeader.biHeight = -guiSCREEN_HEIGHT; // Create top-down bitmap
+		l_bitmap.BitmapInfoHeader.biPlanes = 1;
+		l_bitmap.BitmapInfoHeader.biBitCount = guiCOLOR_DEPTH;
+		l_bitmap.BitmapInfoHeader.biSizeImage = 0;
+		l_bitmap.BitmapInfoHeader.biXPelsPerMeter = 1;
+		l_bitmap.BitmapInfoHeader.biYPelsPerMeter = 1;
+		l_bitmap.BitmapInfoHeader.biClrUsed = 0;
+		l_bitmap.BitmapInfoHeader.biClrImportant = 0;
+
+		l_bitmap.RedMask = 0xF800;
+		l_bitmap.GreenMask = 0x7E0;
+		l_bitmap.BlueMask = 0x1F;
+//		l_bitmap.RedMask = 0xFF0000;
+//		l_bitmap.GreenMask = 0xFF00;
+//		l_bitmap.BlueMask = 0xFF;
 
     l_hbm = CreateDIBSection( l_hdc,
-      &l_bitmapinfo,
+      (BITMAPINFO*)&l_bitmap,
       DIB_RGB_COLORS,
       &pb,
       0,
@@ -70,7 +98,7 @@ void drvColorGraphicsInitialize(void)
     SelectObject( l_hdc, l_hbm );
 
     g_gui_screen_pixels = (LPBYTE)pb;
-    g_gui_screen_line_size = 4 * ((guiSCREEN_WIDTH*3 + 3) / 4); // Length of a scan line 
+    g_gui_screen_line_size = 4 * ((guiSCREEN_WIDTH* (guiCOLOR_DEPTH / 8)) / 4); // Length of a scan line 
     l_bitmapwidth = guiSCREEN_WIDTH;
     l_bitmapheight = guiSCREEN_HEIGHT;
 }
@@ -103,7 +131,7 @@ void drvGraphicsRefreshScreen(HDC in_hdc)
   0, 0,
   guiSCREEN_WIDTH, guiSCREEN_HEIGHT,
 	g_gui_screen_pixels,
-	&l_bitmapinfo,
+	(BITMAPINFO*)&l_bitmap,
   DIB_RGB_COLORS,
   SRCCOPY );
 }
@@ -114,5 +142,18 @@ void drvGraphicsRefreshScreen(HDC in_hdc)
 /// @return Device color
 guiDeviceColor guiColorToDeviceColor(guiColor in_color)
 {
-	return (guiDeviceColor)(((in_color & 0xf80000u) >> 8) | ((in_color & 0x00fc00u) >> 5) | ((in_color & 0x0000f8u) >> 3));
+#if guiCOLOR_DEPTH == 24
+	return in_color;
+#elif guiCOLOR_DEPTH == 16
+	uint8_t r, g, b;
+
+	// RGB 565
+	r = (uint8_t)((in_color >> 19) & 0x1f);
+	g = (uint8_t)((in_color >> 10) & 0x3f);
+	b = (uint8_t)((in_color >> 3) & 0x1f);
+
+	return (r << 11) | (g << 5) | b;
+#else
+#error Invalid color depth
+#endif
 }

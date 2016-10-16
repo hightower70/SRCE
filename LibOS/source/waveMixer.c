@@ -12,7 +12,7 @@
 /* Include                                                                   */
 /*****************************************************************************/
 #include <waveMixer.h>
-#include <drvWavePlayer.h>
+#include <halWavePlayer.h>
 #include "sysConfig.h"
 
 /*****************************************************************************/
@@ -38,7 +38,7 @@ void waveMixerInitialize(waveMixerState* in_state)
 		in_state->ChannelState[channel].NextActiveChannel = waveMIXER_INVALID_CHANNEL;
   }
 
-	drvWavePlayerInitialize();
+	halWavePlayerInitialize();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -131,7 +131,7 @@ void waveMixerStopWave(waveMixerState* in_state, uint8_t in_channel_to_stop)
 /// @param in_channel_info Pointer to the mixel channel inormation array
 /// @param in_reder_buffer Buffer to render the stream
 /// @param in_sample_count Number of samples to render
-void waveMixerRenderStream(waveMixerState* in_state, drvWavePlayerBufferType* in_render_buffer, uint32_t in_sample_count)
+void waveMixerRenderStream(waveMixerState* in_state, halWavePlayerBufferType* in_render_buffer, uint32_t in_sample_count)
 {																																	  
 	uint8_t next_channel_index;
 	uint8_t current_channel_index;
@@ -152,7 +152,7 @@ void waveMixerRenderStream(waveMixerState* in_state, drvWavePlayerBufferType* in
 			// calculate next sample pos
 			current_channel->SampleRateAccumulator += current_channel->SampleRate;
 
-			while(current_channel->SampleRateAccumulator >= drvWAVEPLAYER_SAMPLE_RATE)
+			while(current_channel->SampleRateAccumulator >= halWAVEPLAYER_SAMPLE_RATE)
 			{
 				// next sample
 				current_channel->Position++;
@@ -176,7 +176,7 @@ void waveMixerRenderStream(waveMixerState* in_state, drvWavePlayerBufferType* in
 					}
 				}
 
-				current_channel->SampleRateAccumulator -= drvWAVEPLAYER_SAMPLE_RATE;
+				current_channel->SampleRateAccumulator -= halWAVEPLAYER_SAMPLE_RATE;
 			}
 
 			// check if channel is still active
@@ -191,7 +191,7 @@ void waveMixerRenderStream(waveMixerState* in_state, drvWavePlayerBufferType* in
 		}
 
 		// store sample
-		*in_render_buffer = sample_sum * drvWAVEPLAYER_SAMPLE_MULTIPLIER + drvWAVEPLAYER_SAMPLE_OFFSET;
+		*in_render_buffer = sample_sum * halWAVEPLAYER_SAMPLE_MULTIPLIER + halWAVEPLAYER_SAMPLE_OFFSET;
 		in_render_buffer++;
 
 		// next rendered sample

@@ -37,15 +37,15 @@
 #define waveWAVEPLAYER_SAMPLE_RATE_MASK 0xf0
 
 // defaults for buffer constants
-#if !defined(drvWAVEPLAYER_BUFFER_LENGTH)
-#define drvWAVEPLAYER_BUFFER_LENGTH 2048
+#if !defined(halWAVEPLAYER_BUFFER_LENGTH)
+#define halWAVEPLAYER_BUFFER_LENGTH 2048
 #endif
 
-#if !defined(drvWAVEPLAYER_BUFFER_COUNT)
-#define drvWAVEPLAYER_BUFFER_COUNT 2
+#if !defined(halWAVEPLAYER_BUFFER_COUNT)
+#define halWAVEPLAYER_BUFFER_COUNT 2
 #endif
 
-#define drvWAVEPLAYER_INVALID_BUFFER_INDEX 0xff
+#define halWAVEPLAYER_INVALID_BUFFER_INDEX 0xff
 
 /*****************************************************************************/
 /* Types                                                                     */
@@ -54,20 +54,20 @@ typedef enum
 {
 	drvWP_BS_Empty,
 	drvWP_BS_Playing
-} drvWavePlayerBufferStatus;
+} halWavePlayerBufferStatus;
 
 #if !defined(drvWavePlayerBufferType)
-typedef int16_t drvWavePlayerBufferType;
+typedef int16_t halWavePlayerBufferType;
 #endif
 
 /*****************************************************************************/
 /* Function prototypes                                                       */
 /*****************************************************************************/
-void drvWavePlayerInitialize(void);
-void drvWavePlayerCleanUp(void);
+void halWavePlayerInitialize(void);
+void halWavePlayerCleanUp(void);
 
-void drvWavePlayerPlayBuffer(uint8_t in_buffer_index);
-uint8_t drvWavePlayerGetFreeBufferIndex(void);
-drvWavePlayerBufferType* drvWaveGetBuffer(uint8_t in_buffer_index);
+void halWavePlayerPlayBuffer(uint8_t in_buffer_index);
+uint8_t halWavePlayerGetFreeBufferIndex(void);
+halWavePlayerBufferType* halWaveGetBuffer(uint8_t in_buffer_index);
 
 #endif

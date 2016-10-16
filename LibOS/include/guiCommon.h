@@ -42,4 +42,7 @@ sysResourceAddress guiGetBitmapData(sysResourceAddress in_bitmap_handle);
 
 void guiExtendRect(guiRect* in_rect_to_extend, const guiRect* in_rect_to_include);
 
+uint16_t guiColorToRGB565(guiColor in_color);
+
+
 #endif

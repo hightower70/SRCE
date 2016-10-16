@@ -230,3 +230,20 @@ void guiExtendRect(guiRect* in_rect_to_extend, const guiRect* in_rect_to_include
 	}
 }
 
+/******************************************************************************/
+/* Color conversion routines                                                  */
+/******************************************************************************/
+
+///////////////////////////////////////////////////////////////////////////////
+/// @brief Converts RGB888 color to 16 bit RGB565 format
+uint16_t guiColorToRGB565(guiColor in_color)
+{
+	uint8_t r, g, b;
+
+	// RGB 565
+	r = (uint8_t)((in_color >> 19) & 0x1f);
+	g = (uint8_t)((in_color >> 10) & 0x3f);
+	b = (uint8_t)((in_color >> 3) & 0x1f);
+
+	return (r << 11) | (g << 5) | b;
+}
